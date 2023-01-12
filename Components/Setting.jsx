@@ -3,7 +3,12 @@ import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-
 import  laungimage  from '../assets/lounge.jpg';
 import Footer from './Footer';
 import React, { useState } from 'react'
-
+import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 
 
 export default function Setting() {
@@ -15,7 +20,7 @@ export default function Setting() {
     <View style={styles.setdisplayofpage}>
        {/* header */}
         <View style={styles.headingconatiner}>
-            <FontAwesome icon={RegularIcons.smileWink} />
+        <SimpleLineIcons name="arrow-left" size={24} color="#1877F2" />
             <Text style={styles.heading}>Settings</Text>
         </View>
        {/* body */}
@@ -32,7 +37,7 @@ export default function Setting() {
             <View style={styles.settingcontainer}>
                     <View style={styles.optioncontainer}>
                     <View style={styles.align}>
-                    <FontAwesome icon={RegularIcons.smileWink} />
+                    <Feather name="bell" size={24} color="black" />
                     <Text style={styles.setingoption}>Notification</Text>
                       </View>
                     
@@ -46,35 +51,44 @@ export default function Setting() {
                     </View>
                     <View style={styles.optioncontainer}>
                       <View style={styles.align}>
-                      <FontAwesome icon={RegularIcons.smileWink} />
+                      <AntDesign name="user" size={24} color="black" />
                     <Text style={styles.setingoption}>Account</Text>
                       </View>
                     
-                    <FontAwesome icon={RegularIcons.smileWink} />
+                    <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
                     </View>
                     <View style={styles.optioncontainer}>
                      <View style={styles.align}>
-                      <FontAwesome icon={RegularIcons.smileWink} />
+                     <FontAwesome5 name="share-alt" size={24} color="black" />
                       <Text style={styles.setingoption}>Share With Firends</Text>
                       </View>
                     
-                    <FontAwesome icon={RegularIcons.smileWink} />
+                    <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
                     </View>
+                 
                     <View style={styles.optioncontainer}>
                     <View style={styles.align}>
-                    <FontAwesome icon={RegularIcons.smileWink} />
+                    <MaterialIcons name="pages" size={24} color="black" />
                     <Text style={styles.setingoption}>Terms and conditions</Text>
                       </View>
                     
-                    <FontAwesome icon={RegularIcons.smileWink} />
+                    <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
                     </View>
                     <View style={styles.optioncontainer}>
                     <View style={styles.align}>
-                    <FontAwesome icon={RegularIcons.smileWink} />
-                    <Text style={styles.setingoption}>Help & Support</Text>
+                    <AntDesign name="questioncircleo" size={24} color="black" />
+                    <Text style={styles.setingoption}>About US</Text>
                       </View>
                     
-                    <FontAwesome icon={RegularIcons.smileWink} />
+                    <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
+                    </View>
+                    <View style={styles.optioncontainer}>
+                    <View style={styles.align}>
+                    <Ionicons name="help-buoy-outline" size={24} color="black" />
+                    <Text style={styles.setingoption}>Help & Support</Text>
+                      </View>
+                      <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
+                    
                     </View>
                     <View style={styles.btncontainer}>
                     <Button
@@ -176,14 +190,14 @@ const styles = StyleSheet.create({
       flexDirection:"row",
       alignItems:"center",
       justifyContent:"space-between",
-      height:"15%",
+      height:"14%",
        },
     btncontainer: {
       width:"40%",
       height:"13%",
       display:"flex",
       alignSelf:"center",
-      marginTop:"20%",
+      marginTop:"8%",
        },
    
       

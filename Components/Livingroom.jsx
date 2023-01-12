@@ -3,6 +3,12 @@ import React from 'react'
 import Footer from './Footer';
 import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-fontawesome';
 import  laungimage  from '../assets/lounge.jpg';
+import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 
 
 export default function Livingroom() {
@@ -11,9 +17,9 @@ export default function Livingroom() {
     <View style={styles.setdisplayofpage}>
        {/* header */}
         <View style={styles.headingconatiner}>
-            <FontAwesome icon={RegularIcons.smileWink} />
+        <SimpleLineIcons name="arrow-left" size={24} color="#1877F2" />
             <Text style={styles.heading}>Living Room</Text>
-            <FontAwesome icon={RegularIcons.smileWink} />
+            <AntDesign name="setting" size={24} color="#1877F2" />
         </View>
        {/* body */}
           <View style={styles.bodyconatiner}>
@@ -21,18 +27,18 @@ export default function Livingroom() {
         </ImageBackground>
 
         <View style={styles.options}>
-        <FontAwesome icon={RegularIcons.smileWink} />
-        <FontAwesome icon={RegularIcons.smileWink} />
-        <FontAwesome icon={RegularIcons.smileWink} />
+        <AntDesign name="pausecircle" size={30} color="#1877F2" />
+        <FontAwesome5 name="volume-mute" size={30} color="#1877F2" />
+        <MaterialIcons name="crop-rotate" size={30} color="#1877F2" />
         </View>
         <View style={styles.historybox}>
         <Text style={styles.para}>View history record</Text>
         </View>
             
             <View style={styles.moreoptions}>
-        <FontAwesome icon={RegularIcons.smileWink} />
-        <FontAwesome icon={RegularIcons.smileWink} />
-        <FontAwesome icon={RegularIcons.smileWink} />
+            <Feather name="camera" size={40} color="black" />
+            <Feather name="mic-off" size={40} color="black" />
+        <AntDesign name="videocamera" size={40} color="black" />
             </View>
           </View>
    

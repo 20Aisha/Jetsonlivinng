@@ -3,6 +3,12 @@ import React from 'react'
 import Footer from './Footer';
 import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-fontawesome';
 import  laungimage  from '../assets/lounge.jpg';
+import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 
 
 export default function Recording() {
@@ -11,9 +17,9 @@ export default function Recording() {
      <View style={styles.setdisplayofpage}>
         {/* header */}
          <View style={styles.headingconatiner}>
-             <FontAwesome icon={RegularIcons.smileWink} />
+         <SimpleLineIcons name="arrow-left" size={24} color="#1877F2" />
              <Text style={styles.heading}>Recordings</Text>
-             <FontAwesome icon={RegularIcons.smileWink} />
+             <AntDesign name="setting" size={24} color="#1877F2" />
          </View>
         {/* body */}
            <View style={styles.bodyconatiner}>

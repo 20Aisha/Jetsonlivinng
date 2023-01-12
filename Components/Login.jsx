@@ -39,11 +39,11 @@ export default function Login() {
        {/* </SafeAreaView> */}
       <Text  style={styles.forget}>Forget Password?</Text>
       <View style={styles.signbtn}>
-      <Button
+      {/* <Button
                     title="Sign in"
                     color="#1877F2"
                     style={styles.btn}
-                   />
+                   /> */}
       </View>
       
      </View>

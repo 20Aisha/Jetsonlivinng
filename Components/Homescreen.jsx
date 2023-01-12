@@ -3,6 +3,13 @@ import {ImageBackground, StyleSheet, Text, View,Button } from 'react-native';
 import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-fontawesome';
 import  laungimage  from '../assets/lounge.jpg';
 import Footer from './Footer';
+import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
+
 
 
 export default function Homescreen() {
@@ -41,12 +48,12 @@ export default function Homescreen() {
            
            <View  style={styles.btncontainer}>
           <View style={styles.bg}>
-            <View style={styles.btn}><FontAwesome icon={SolidIcons.smile} /><Text>View all devices</Text></View>
+            <View style={styles.btn}><Text> <Feather name="share-2" size={24} color="black" /></Text><Text>View all devices</Text></View>
           </View>
           <View style={styles.bgdbtn}>
-            <View style={styles.btnd}><FontAwesome icon={SolidIcons.smile} /><Text>Stats</Text></View>
-            <View style={styles.btnd}><FontAwesome icon={SolidIcons.smile} /><Text>Recording</Text></View>
-            <View style={styles.btnd}><FontAwesome icon={SolidIcons.smile} /><Text>Setting</Text></View>
+            <View style={styles.btnd}><Text> <Ionicons name="stats-chart" size={24} color="black" /></Text><Text>Stats</Text></View>
+            <View style={styles.btnd}><Text>  <AntDesign name="videocamera" size={24} color="black" /></Text><Text>Recording</Text></View>
+            <View style={styles.btnd}><Text> <AntDesign name="setting" size={24} color="black" /></Text><Text>Setting</Text></View>
           </View>
 
            </View>

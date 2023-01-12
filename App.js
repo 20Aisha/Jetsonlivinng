@@ -14,12 +14,14 @@ import Notification from './Components/Notification';
 import Livingroom from './Components/Livingroom';
 import Setting from './Components/Setting';
 import Login from './Components/Login';
+import Signup from './Components/Signup';
+import Gridscreen from './Components/Gridscreen';
 
 
 
 export default function App() {
   return (
-  <Login/>
+  <Livingroom/>
   
   );
 }
