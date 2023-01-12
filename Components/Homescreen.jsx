@@ -156,7 +156,8 @@ const styles = StyleSheet.create({
         width:"100%",
         paddingLeft:10,
         paddingTop:10,
-        backgroundColor:"green",
+        backgroundColor:"green", 
+      
       },
       imagevertical2: {
         height:"45%",

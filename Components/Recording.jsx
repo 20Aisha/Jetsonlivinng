@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
        heading: {
         fontSize:30, 
         fontWeight: "700",
-        color:"blue"
+        color:"#1877F2",
        },
        headingcam: {
         fontSize:20, 
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     headingtwo: {
         fontSize:20, 
         fontWeight: "700",
-        color:"blue"
+        color:"#1877F2",
     },
     paragray: { 
         color:"gray"
@@ -182,18 +182,23 @@ const styles = StyleSheet.create({
        height:"15%",
        width:"90%",
        borderRadius:10,
-       shadowOpacity: 0.25,
-        shadowRadius: 10,
-     elevation: 9,
-       shadowColor: 'gray',
-       
+    //    shadowOpacity: 0.25,
+    //     shadowRadius: 10,
+    //  elevation: 9,
+    //    shadowColor: 'gray',
+    borderWidth:1,
+    bordercolor:"gray",
       
     },
        cardimg: {
-       height:"80%",
+       height:"100%",
        width:"35%",
-       marginTop:"4%",
-       marginLeft:"1%"
+       borderBottomLeftRadius: 10,
+//  borderBottomRightRadius: 15,
+ borderTopLeftRadius: 10,
+// borderTopRightRadius: 15,
+    //    marginTop:"4%",
+    //    marginLeft:"1%"
     },
        cardbody: {
         height:"100%",

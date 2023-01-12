@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {  StyleSheet, Text, View } from 'react-native';
 import Camerasceen2 from './Components/Camerasceen2';
 import Camerascreen from './Components/Camerascreen';
 import Camerascreen1 from './Components/Camerascreen1';
@@ -10,10 +10,16 @@ import Homescreen from './Components/Homescreen';
 import Navbar from './Components/Navbar';
 import Recording from './Components/Recording';
 import Statusscreen from './Components/Statusscreen';
+import Notification from './Components/Notification';
+import Livingroom from './Components/Livingroom';
+import Setting from './Components/Setting';
+import Login from './Components/Login';
+
+
 
 export default function App() {
   return (
-    <Recording/>
+  <Login/>
   
   );
 }

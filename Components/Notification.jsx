@@ -149,8 +149,6 @@ const styles = StyleSheet.create({
       alignItems:"center",
       justifyContent:"space-between",
       flex:1,   
-      borderBottomWidth:1,
-      borderBottomColor:"gray",
        },
     bodyconatiner: {
       display:"flex",
@@ -162,7 +160,7 @@ const styles = StyleSheet.create({
        heading: {
         fontSize:30, 
         fontWeight: "700",
-        color:"blue"
+        color:"#1877F2",
        },
        headingcam: {
         fontSize:20, 
@@ -171,23 +169,20 @@ const styles = StyleSheet.create({
     headingtwo: {
         fontSize:20, 
         fontWeight: "700",
-        color:"blue"
+        color:"#1877F2",
     },
     paragray: { 
-        color:"gray"
+        color:"gray",
+   
     },
        card: {
         display:"flex",
         flexDirection:"row",
        height:"20%",
        width:"100%",
-       borderRadius:10,
-       shadowOpacity: 0.25,
-        shadowRadius: 10,
-     elevation: 9,
-       shadowColor: 'gray',
-       
-      
+      borderBottomColor:"gray",
+      borderBottomWidth:1,
+
     },
        cardimg: {
        height:"80%",
