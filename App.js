@@ -1,29 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import {  StyleSheet, Text, View } from 'react-native';
-import Camerasceen2 from './Components/Camerasceen2';
-import Camerascreen from './Components/Camerascreen';
-import Camerascreen1 from './Components/Camerascreen1';
-import Camerascreen3 from './Components/Camerascreen3';
-import Devicescreen from './Components/Devicescreen';
-import Footer from './Components/Footer';
-import Homescreen from './Components/Homescreen';
-import Navbar from './Components/Navbar';
-import Recording from './Components/Recording';
-import Statusscreen from './Components/Statusscreen';
-import Notification from './Components/Notification';
-import Livingroom from './Components/Livingroom';
-import Setting from './Components/Setting';
-import Login from './Components/Login';
-import Signup from './Components/Signup';
-import Gridscreen from './Components/Gridscreen';
+import React, {useState} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import AuthNavigator from './src/AuthNavigator';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {View, Text} from 'react-native';
 
+import CalenderScreen from './src/Component/Calendar';
+import Footer from './src/Component/Footer';
+import Statusscreen from './src/Component/Statusscreen';
+import VideoScreen from './src/Component/Video';
+import Setting from './src/Component/Setting';
+import Domi from './src/Component/domi';
+import Camerascreen from './src/Component/Camerascreen';
+// https://oblador.github.io/react-native-vector-icons/
 
+const App = () => {
+  const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
 
-export default function App() {
   return (
-  // <Livingroom/>
-  
+
+    <NavigationContainer options={{headerShown: false}}>
+      {/* <Camerascreen /> */}
+      {/* <CalenderScreen /> */}
+      {/* <VideoScreen /> */}
+      {/* <Domi /> */}
+      <AuthNavigator />
+    </NavigationContainer>
+
+   
   );
-}
+};
 
-
+export default App;
