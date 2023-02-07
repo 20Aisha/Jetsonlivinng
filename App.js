@@ -21,7 +21,7 @@ import Gridscreen from './Components/Gridscreen';
 
 export default function App() {
   return (
-  <Livingroom/>
+  // <Livingroom/>
   
   );
 }
