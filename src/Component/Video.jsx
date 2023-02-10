@@ -5,7 +5,6 @@ import React, { useState, useRef } from 'react';
 import Video from 'react-native-video';
 // import Footer from './Footer';
 import { Checkbox, List, MD3Colors } from 'react-native-paper';
-// import Video from 'react-native-youtube-iframe';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import Octicons from 'react-native-vector-icons/Octicons';
@@ -14,8 +13,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Card, Button } from 'react-native-paper';
 
 
+
 export default function VideoScreen() {
-  const video = useRef(null);
+  const videoRef = useRef(null);
   const [status, setStatus] = useState({});
   const [checked, setChecked] = useState(false);
   const [isSelected, setSelection] = useState(false);
@@ -53,7 +53,7 @@ export default function VideoScreen() {
 
 
       <Video
-        // ref={video}
+        ref={videoRef}
         style={styles.video}
         source={{
           uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
@@ -64,16 +64,18 @@ export default function VideoScreen() {
         }}
         muted={isMute}
         controls={true}
+        
         // onPictureInPictureStatusChanged={true}
         // onRestoreUserInterfaceForPictureInPictureStop
         // fullscreenOrientation="landscape"
-        useNativeControls
-        resizeMode="contain"
-        isLooping
+        // useNativeControls
+        // resizeMode="contain"
+        // isLooping
+// onProgress={true}
 
         // fullscreenOrientation='true'
-        fullscreenAutorotate={true}
-        onPlaybackStatusUpdate={status => setStatus(() => status)}
+        // fullscreenAutorotate={true}
+        // onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
       {/* <View style={styles.video}>
         <Video

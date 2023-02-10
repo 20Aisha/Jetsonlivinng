@@ -12,6 +12,7 @@ import VideoScreen from './src/Component/Video';
 import Setting from './src/Component/Setting';
 import Domi from './src/Component/domi';
 import Camerascreen from './src/Component/Camerascreen';
+import VideoPlayer from './src/Component/VideoPlayer';
 // https://oblador.github.io/react-native-vector-icons/
 
 const App = () => {
@@ -23,9 +24,10 @@ const App = () => {
     <NavigationContainer options={{headerShown: false}}>
       {/* <Camerascreen /> */}
       {/* <CalenderScreen /> */}
+      <VideoPlayer />
       {/* <VideoScreen /> */}
       {/* <Domi /> */}
-      <AuthNavigator />
+      {/* <AuthNavigator /> */}
     </NavigationContainer>
 
    

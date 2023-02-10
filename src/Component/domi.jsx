@@ -20,18 +20,18 @@ let data=[
         name_1:"Clemson",
         time:"2"
     },
-    {
-        id:3,
-        name:"https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-        name_1:"Clemson",
-        time:"3"
-    },
-    {
-        id:4,
-        name:"https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-        name_1:"Clemson Sc",
-        time:"4"
-    },
+    // {
+    //     id:3,
+    //     name:"https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+    //     name_1:"Clemson",
+    //     time:"3"
+    // },
+    // {
+    //     id:4,
+    //     name:"https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+    //     name_1:"Clemson Sc",
+    //     time:"4"
+    // },
 ]
 
 
@@ -50,9 +50,20 @@ let data=[
     </View>
 <VideoPlayer
  video={{uri:item.name}}
-autoplay={false}
-defaultMuted={true}
+// autoplay={true}
+// defaultMuted={false}
+// disableFullscreen={true}
+// resizeMode={VideoPlayer.Constants.resizeMode.CONTAIN}
+// fullScreenOnLongPress={true}
+// controls={fa}    
+
 videoHeight={500}
+fullscreen={false}
+pictureInPicture={true}
+showDuration={true}
+// onSeek={true}
+
+// repeat={true}
 // videoWidth={100}
 
 />
@@ -61,6 +72,7 @@ videoHeight={500}
             )
         }}
         />
+
     </SafeAreaView>
     
         );
