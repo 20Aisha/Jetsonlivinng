@@ -3,7 +3,7 @@ package com.Burick;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
-
+import com.reactnativepipandroid.PipAndroidModule;
 public class MainActivity extends ReactActivity {
 
   /**

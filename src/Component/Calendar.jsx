@@ -4,7 +4,6 @@ import { Calendar } from 'react-native-calendars';
 import Footer from './Footer';
 import CalendarPicker from 'react-native-calendar-picker';
 import Moment from 'moment';
-import { Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -176,7 +175,7 @@ export default function CalenderScreen() {
                         </Text>
                     </View>
                     <View>
-                        <Text style={styles.btnClose} onPress={() => navigation.navigate('VideoScreen')}>Done</Text>
+                        <Text style={styles.btnClose} onPress={() => navigation.navigate('VideoPlayer')}>Done</Text>
                     </View>
                 </View>
 

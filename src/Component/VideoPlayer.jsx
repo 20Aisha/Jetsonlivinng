@@ -1,30 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Video from 'react-native-video';
 import {
-  View,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-  StatusBar,
-  Share,
-  Text,
+  View, StyleSheet, Dimensions, TouchableOpacity, StatusBar, Share, Text, Button, SafeAreaView
 } from 'react-native';
+import PipHandler, { usePipModeListener } from 'react-native-pip-android';
 import Orientation from 'react-native-orientation-locker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProgressBar from './ProgressBar';
 import Octicons from 'react-native-vector-icons/Octicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+// import FontAwesome from 'react-native-vector-icons/MaterialIcons';
+import { Checkbox, List, MD3Colors } from 'react-native-paper';
+import ViewShot from 'react-native-view-shot';
+import CameraRoll from '@react-native-community/cameraroll';
 // import PlayerControls from './PlayerControls';
 
 
-const windowHeight = Dimensions.get('window').width * (9 / 16);
+const windowHeight = Dimensions.get('window').width * (12 / 16);
 const windowWidth = Dimensions.get('window').width;
 
 const height = Dimensions.get('window').width;
 const width = Dimensions.get('window').height;
 
 const VideoPlayer = () => {
+
   const videoRef = React.createRef();
+  const inPipMode = usePipModeListener();
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [play, setPlay] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
+  const [showControl, setShowControl] = useState(true);
+  const [isMute, setMute] = useState(false);
+  const [checked, setChecked] = useState(false);
+
+  let Url = 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4';
 
   useEffect(() => {
     Orientation.addOrientationListener(handleOrientation);
@@ -33,14 +43,13 @@ const VideoPlayer = () => {
     };
   }, []);
 
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [play, setPlay] = useState(false);
-  const [fullscreen, setFullscreen] = useState(false);
-  const [showControl, setShowControl] = useState(true);
-  const [isMute, setMute] = useState(false);
-
-  let Url = 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4';
+  if (inPipMode) {
+    return (
+      <View style={styles.container}>
+        <Text>PIP Mode</Text>
+      </View>
+    );
+  }
 
   // console.log(isMute, "isMute")
   const muteVideo = () => setMute(!isMute);
@@ -54,7 +63,7 @@ const VideoPlayer = () => {
       StatusBar.setHidden(false);
     }
   };
-  
+
   const handlePlayPause = () => {
     if (play) {
       setPlay(false);
@@ -136,89 +145,174 @@ const VideoPlayer = () => {
     }
   };
 
+
+  const ref = useRef();
+  const takeScreenShot = () => {
+    ref.current.capture().then(uri => {
+      CameraRoll.save(uri, { type: "photo", album: "QR codes" });
+      alert("Took screenshot");
+    });
+  };
+
+
+
+
+
   return (
     <View style={fullscreen ? styles.fullscreenContainer : styles.container}>
-      <TouchableOpacity onPress={handleControls}>
-        <>
-          <Video
-            ref={videoRef}
-            source={{
-              uri:
-                'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
-              // 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-            }}
-            style={fullscreen ? styles.fullscreenVideo : styles.video}
-            controls={false}
-            resizeMode={'contain'}
-            onLoad={onLoadEnd}
-            onProgress={onProgress}
-            onEnd={onEnd}
-            paused={!play}
-            muted={isMute}
-          />
+      <ViewShot
+        ref={ref}
+        options={{
+          fileName: 'file-name', // screenshot image name
+          format: 'jpg', // image extention
+          quality: 0.9 // image quality
+        }}>
+        {/* <Text> Start Screen Shot</Text> */}
 
-          {showControl && (
-            <View style={styles.controlOverlay}>
-              <TouchableOpacity
-                onPress={handleFullscreen}
-                hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                style={styles.fullscreenButton}
-              >
-                {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={34} color="yellow" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="yellow" />}
-              </TouchableOpacity>
-              <View
-                style={styles.IconScreen}
-              >
+        <TouchableOpacity onPress={handleControls}>
+          <>
+            <Video
+              ref={videoRef}
+              source={{
+                uri:
+                  'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+                // 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+              }}
+              style={fullscreen ? styles.fullscreenVideo : styles.video}
+              controls={false}
+              resizeMode={'contain'}
+              onLoad={onLoadEnd}
+              onProgress={onProgress}
+              onEnd={onEnd}
+              paused={!play}
+              muted={isMute}
+              pictureInPicture={true}
+            />
 
-
-                <TouchableOpacity onPress={() => onShare()}
-                // style={styles.fullscreenShare}
+            {showControl && (
+              <View style={styles.controlOverlay}>
+                <TouchableOpacity
+                  onPress={handleFullscreen}
+                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                  style={styles.fullscreenButton}
                 >
+                  {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={34} color="yellow" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="yellow" />}
+                </TouchableOpacity>
 
-                  <FontAwesome name="share-square-o" size={34} color="yellow" />
+                <TouchableOpacity onPress={() => PipHandler.enterPipMode(300, 214)}
+                  style={styles.fullscreenShare}
+                >
+                  <MaterialCommunityIcons name="picture-in-picture-bottom-right" size={34} color="yellow" />
                 </TouchableOpacity >
 
-                <TouchableOpacity
-                  // style={styles.timeLeft} 
-                  onPress={() => muteVideo()}>
-                  <Octicons name={isMute ? "mute" : "unmute"} size={34} color="yellow" />
-                </TouchableOpacity>
-              </View>
-              {/* <PlayerControls
+                <View
+                  style={styles.IconScreen}
+                >
+
+                  <TouchableOpacity onPress={() => onShare()}
+                  // style={styles.fullscreenShare}
+                  >
+                    <FontAwesome name="share-square-o" size={34} color="yellow" />
+                  </TouchableOpacity >
+
+                  <TouchableOpacity onPress={takeScreenShot}
+                  // style={styles.fullscreenShare}
+                  >
+                    <MaterialCommunityIcons name="cellphone-screenshot" size={34} color="yellow" />
+                  </TouchableOpacity >
+
+                  {/* <TouchableOpacity onPress={() => PipHandler.enterPipMode(300, 214)}
+                  // style={styles.fullscreenShare}
+                  >
+                    <MaterialCommunityIcons name="picture-in-picture-bottom-right" size={34} color="yellow" />
+                  </TouchableOpacity > */}
+
+                  <TouchableOpacity
+                    // style={styles.timeLeft} 
+                    onPress={() => muteVideo()}>
+                    <Octicons name={isMute ? "mute" : "unmute"} size={34} color="yellow" />
+                  </TouchableOpacity>
+                </View>
+                {/* <TouchableOpacity
+                  onPress={() => PipHandler.enterPipMode(300, 214)}
+                  style={styles.box}>
+                  <Text>Click to Enter Pip Mode</Text>
+                </TouchableOpacity> */}
+
+                {/* <PlayerControls
                 onPlay={handlePlay}
                 onPause={handlePlayPause}
                 playing={play}
                 skipBackwards={skipBackward}
                 skipForwards={skipForward}
               /> */}
-              {/* <Text 
+                {/* <Text 
               style={styles.timeLeft} */}
 
-              {/* <TouchableOpacity style={styles.timeLeft} onPress={() => muteVideo()}>
+                {/* <TouchableOpacity style={styles.timeLeft} onPress={() => muteVideo()}>
                 <Octicons name={isMute ? "mute" : "unmute"} size={34} color="yellow" />
               </TouchableOpacity> */}
-              {/* <TouchableOpacity style={styles.LanScapLeft}    onPress={handleFullscreen}>
+                {/* <TouchableOpacity style={styles.LanScapLeft}    onPress={handleFullscreen}>
               {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={34} color="yellow"/> : <MaterialCommunityIcons name='fullscreen' size={34} color="yellow"/>}
               </TouchableOpacity > */}
 
 
-              <ProgressBar
-                currentTime={currentTime}
-                duration={duration > 0 ? duration : 0}
-                onSlideStart={handlePlayPause}
-                onSlideComplete={handlePlayPause}
-                onSlideCapture={onSeek}
-                onPlay={handlePlay}
-                onMute={muteVideo}
-                onPause={handlePlayPause}
-                playing={play}
-                skipBackwards={skipBackward}
-                skipForwards={skipForward}
-              />
-            </View>
-          )}
-        </>
-      </TouchableOpacity>
+                <ProgressBar
+                  currentTime={currentTime}
+                  duration={duration > 0 ? duration : 0}
+                  onSlideStart={handlePlayPause}
+                  onSlideComplete={handlePlayPause}
+                  onSlideCapture={onSeek}
+                  onPlay={handlePlay}
+                  onMute={muteVideo}
+                  onPause={handlePlayPause}
+                  playing={play}
+                  skipBackwards={skipBackward}
+                  skipForwards={skipForward}
+                />
+
+              </View>
+            )}
+          </>
+        </TouchableOpacity>
+        {/* <Text> End Screen Shot</Text> */}
+      </ViewShot>
+
+
+      {/* <Button title="Picture IN Picture" onPress={takePicture} /> */}
+
+      <List.Section >
+        <List.Item title="loerm ipsum dollar magnam"
+          left={() => <Checkbox
+            status={checked ? 'checked' : 'unchecked'}
+            onPress={() => {
+              setChecked(!checked);
+            }} />}
+        />
+        <List.Item title="loerm ipsum dollar magnam"
+          left={() => <Checkbox
+            status={checked ? 'checked' : 'unchecked'}
+            onPress={() => {
+              setChecked(!checked);
+            }} />}
+        />
+        <List.Item title="loerm ipsum dollar magnam"
+          left={() => <Checkbox
+            status={checked ? 'checked' : 'unchecked'}
+            onPress={() => {
+              setChecked(!checked);
+            }} />}
+        />
+        <List.Item title="loerm ipsum dollar magnam"
+          left={() => <Checkbox
+            status={checked ? 'checked' : 'unchecked'}
+            onPress={() => {
+              setChecked(!checked);
+            }} />}
+        />
+      </List.Section>
+
+
     </View>
   );
 };

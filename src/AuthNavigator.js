@@ -18,6 +18,7 @@ import CalenderScreen from './Component/Calendar';
 import VideoScreen from './Component/Video';
 import StartScreen from './Component/StartScreen';
 import Footer from './Component/Footer';
+import VideoPlayer from './Component/VideoPlayer';
 
 // import Navbar from "../Navbar";
 // import Footer from "../Footer";
@@ -94,6 +95,13 @@ const AuthNavigator = (raza) => (
         headerShown: false,
       }}
       component={Recording}
+    />
+    <Stack.Screen
+      name="VideoPlayer"
+      options={{
+        headerShown: false,
+      }}
+      component={VideoPlayer}
     />
     <Stack.Screen
       name="Notification"

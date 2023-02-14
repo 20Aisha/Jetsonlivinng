@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react';
 import Slider from '@react-native-community/slider';
 import { View, Text, StyleSheet, TouchableOpacity, Share, } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import PlayerControls from './PlayerControls';
-// import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import Octicons from 'react-native-vector-icons/Octicons';
 
 const ProgressBar = props => {
@@ -62,7 +62,9 @@ const ProgressBar = props => {
         <View style={styles.PlayerControl}>
 
           <TouchableOpacity style={styles.touchable} onPress={skipBackwards}>
-            {/* <VideoSkipBack /> */}
+            <AntDesign name='banckward' size={34} color="yellow" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchable} onPress={skipBackwards}>
             <Ionicons name='play-skip-back-circle-sharp' size={34} color="yellow" />
           </TouchableOpacity>
 
@@ -70,17 +72,17 @@ const ProgressBar = props => {
             style={styles.touchable}
             onPress={playing ? onPause : onPlay}>
             {playing ? (
-              // <VideoPause height="50" width="50" />
               <Ionicons name='pause' size={34} color="yellow" />
             ) : (
-              // <VideoPlay height="50" width="50" />
               <Ionicons name='play-circle-sharp' size={34} color="yellow" />
             )}
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.touchable} onPress={skipForwards}>
             <Ionicons name='play-skip-forward-circle-sharp' size={34} color="yellow" />
-            {/* <VideoSkipForward /> */}
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchable} onPress={skipForwards}>
+            <AntDesign name='forward' size={34} color="yellow" />
           </TouchableOpacity>
 
         </View>
