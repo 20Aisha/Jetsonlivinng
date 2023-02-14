@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import splashScreen2 from '../assets/splashScreen2.png';
+import splashScreen2 from '../assets/splashScreen2.jpg';
 import { ImageBackground, StyleSheet, Text, Image, View, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Signup from './Signup';
@@ -21,7 +21,7 @@ export default function StartScreen() {
     return (
 
         <View style={{ flex: 1 }}>
-            {loading ? <Signup /> : <ImageBackground resizeMode="cover" source={require('../assets/splashScreen2.png')} style={{ flex: 1, justifyContent: "center" }} />}
+            {loading ? <Signup /> : <ImageBackground resizeMode="cover" source={require('../assets/splashScreen2.jpg')} style={{ flex: 1, justifyContent: "center" }} />}
         </View>
     )
 }

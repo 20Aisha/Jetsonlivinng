@@ -62,27 +62,27 @@ const ProgressBar = props => {
         <View style={styles.PlayerControl}>
 
           <TouchableOpacity style={styles.touchable} onPress={skipBackwards}>
-            <AntDesign name='banckward' size={34} color="yellow" />
+            <AntDesign name='banckward' size={34} color="gray" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.touchable} onPress={skipBackwards}>
-            <Ionicons name='play-skip-back-circle-sharp' size={34} color="yellow" />
+            <Ionicons name='play-skip-back-circle-sharp' size={34} color="gray" />
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.touchable}
             onPress={playing ? onPause : onPlay}>
             {playing ? (
-              <Ionicons name='pause' size={34} color="yellow" />
+              <Ionicons name='pause' size={34} color="gray" />
             ) : (
-              <Ionicons name='play-circle-sharp' size={34} color="yellow" />
+              <Ionicons name='play-circle-sharp' size={34} color="gray" />
             )}
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.touchable} onPress={skipForwards}>
-            <Ionicons name='play-skip-forward-circle-sharp' size={34} color="yellow" />
+            <Ionicons name='play-skip-forward-circle-sharp' size={34} color="gray" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.touchable} onPress={skipForwards}>
-            <AntDesign name='forward' size={34} color="yellow" />
+            <AntDesign name='forward' size={34} color="gray" />
           </TouchableOpacity>
 
         </View>

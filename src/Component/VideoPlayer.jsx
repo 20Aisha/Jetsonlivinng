@@ -13,6 +13,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Checkbox, List, MD3Colors } from 'react-native-paper';
 import ViewShot from 'react-native-view-shot';
 import CameraRoll from '@react-native-community/cameraroll';
+
 // import PlayerControls from './PlayerControls';
 
 
@@ -175,7 +176,7 @@ const VideoPlayer = () => {
               ref={videoRef}
               source={{
                 uri:
-                  'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+                  'https://rr2---sn-npoeenly.googlevideo.com/videoplayback?expire=1676429476&ei=Q_TrY8vDO5KhtQeTm6vACQ&ip=64.145.76.74&id=o-APsLrg5ZE8rmKIVS6Gl0tiQ6CqNKfCOgnLHEtNKZM6zq&itag=18&source=youtube&requiressl=yes&spc=H3gIhjJTF9cbfWDm-vXeGo5BfsfpKoY&vprv=1&mime=video%2Fmp4&ns=CSEzMo4RKTyuNAnUNePJxBUL&cnr=14&ratebypass=yes&dur=119.652&lmt=1664575038351521&fexp=24007246&c=WEB&txp=5538434&n=NuvJz1WVDVALhA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAItMS4aFyHPiBjHGlIY1m_Se-EDi-IyVbKZCanF7bOo4AiEAkltXYET2DFUFzDho3WVZQtt9ETHh1ZK7jZXSkB4ds9E%3D&redirect_counter=1&cm2rm=sn-a5me7y7s&req_id=c89c80940248a3ee&cms_redirect=yes&cmsv=e&mh=Ea&mip=119.73.96.2&mm=34&mn=sn-npoeenly&ms=ltu&mt=1676407482&mv=m&mvi=2&pl=24&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAO4qm7zUMwdwWifnIU47rEZ591uvN-OOGTz3ki3jX45nAiAsJfDofN7j4vinxmAdROBzQGwOJzyAqG8T4Ks3DunXyg%3D%3D',
                 // 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
               }}
               style={fullscreen ? styles.fullscreenVideo : styles.video}
@@ -191,18 +192,12 @@ const VideoPlayer = () => {
 
             {showControl && (
               <View style={styles.controlOverlay}>
-                <TouchableOpacity
-                  onPress={handleFullscreen}
-                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                  style={styles.fullscreenButton}
-                >
-                  {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={34} color="yellow" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="yellow" />}
-                </TouchableOpacity>
+                
 
                 <TouchableOpacity onPress={() => PipHandler.enterPipMode(300, 214)}
                   style={styles.fullscreenShare}
                 >
-                  <MaterialCommunityIcons name="picture-in-picture-bottom-right" size={34} color="yellow" />
+                  <MaterialCommunityIcons name="picture-in-picture-bottom-right" size={34} color="gray" />
                 </TouchableOpacity >
 
                 <View
@@ -212,26 +207,35 @@ const VideoPlayer = () => {
                   <TouchableOpacity onPress={() => onShare()}
                   // style={styles.fullscreenShare}
                   >
-                    <FontAwesome name="share-square-o" size={34} color="yellow" />
+                    <FontAwesome name="share-square-o" size={34} color="gray" />
                   </TouchableOpacity >
 
                   <TouchableOpacity onPress={takeScreenShot}
                   // style={styles.fullscreenShare}
                   >
-                    <MaterialCommunityIcons name="cellphone-screenshot" size={34} color="yellow" />
+                    <MaterialCommunityIcons name="monitor-screenshot" size={34} color="gray" />
                   </TouchableOpacity >
 
                   {/* <TouchableOpacity onPress={() => PipHandler.enterPipMode(300, 214)}
                   // style={styles.fullscreenShare}
                   >
-                    <MaterialCommunityIcons name="picture-in-picture-bottom-right" size={34} color="yellow" />
+                    <MaterialCommunityIcons name="picture-in-picture-bottom-right" size={34} color="gray" />
                   </TouchableOpacity > */}
 
                   <TouchableOpacity
                     // style={styles.timeLeft} 
                     onPress={() => muteVideo()}>
-                    <Octicons name={isMute ? "mute" : "unmute"} size={34} color="yellow" />
+                    <Octicons name={isMute ? "mute" : "unmute"} size={34} color="gray" />
                   </TouchableOpacity>
+
+                  <TouchableOpacity
+                  onPress={handleFullscreen}
+                  // hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                  // style={styles.fullscreenButton}
+                  // style={styles.fullscreenButton}
+                >
+                  {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={35} color="gray" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="gray" />}
+                </TouchableOpacity>
                 </View>
                 {/* <TouchableOpacity
                   onPress={() => PipHandler.enterPipMode(300, 214)}
@@ -250,10 +254,10 @@ const VideoPlayer = () => {
               style={styles.timeLeft} */}
 
                 {/* <TouchableOpacity style={styles.timeLeft} onPress={() => muteVideo()}>
-                <Octicons name={isMute ? "mute" : "unmute"} size={34} color="yellow" />
+                <Octicons name={isMute ? "mute" : "unmute"} size={34} color="gray" />
               </TouchableOpacity> */}
                 {/* <TouchableOpacity style={styles.LanScapLeft}    onPress={handleFullscreen}>
-              {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={34} color="yellow"/> : <MaterialCommunityIcons name='fullscreen' size={34} color="yellow"/>}
+              {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={34} color="gray"/> : <MaterialCommunityIcons name='fullscreen' size={34} color="gray"/>}
               </TouchableOpacity > */}
 
 
@@ -350,10 +354,10 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
   },
   fullscreenButton: {
-    flex: 1,
-    flexDirection: 'row',
+    // flex: 1,
+    // flexDirection: 'row',
     alignSelf: 'flex-end',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     paddingRight: 10,
     // marginTop: 30,
     // margin:10,
