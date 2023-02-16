@@ -16,7 +16,7 @@ export default function Devicescreen() {
       {/* <ScrollView> */}
 
       <View style={styles.miniHeader}>
-        <Text style={styles.heading} >Devices</Text>
+        <Text style={styles.heading} >Cameras</Text>
         <View style={styles.btncontainer}>
           <Text style={styles.btnHeader} onPress={() => navigation.navigate('Gridscreen')}>Grid View</Text>
           <Text style={styles.btnHeader} ><Ionicons name="add" size={35} color="black" /></Text>

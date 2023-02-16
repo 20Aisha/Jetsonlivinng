@@ -76,18 +76,18 @@ const styles = StyleSheet.create({
 
 
   container: {
-    flex: 1,
-    marginTop: "15%",
+
     // height:"400%"
 
     // alignItems:"center"
   },
   image: {
     flex: 1,
+    display:"flex",
     justifyContent: 'center',
+    paddingTop:"10%"
   },
   main: {
-    padding: 40,
     display: "flex",
     flexDirection: "column",
     flex: 1,

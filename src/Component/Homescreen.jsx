@@ -1,11 +1,12 @@
-import React from 'react';
-import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Alert, Modal, Pressable } from 'react-native';
 import laungimage from '../assets/lounge.jpg';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Footer from './Footer';
 import { useNavigation } from '@react-navigation/native';
 import { Card, Button } from 'react-native-paper';
@@ -13,15 +14,41 @@ import { Card, Button } from 'react-native-paper';
 export default function Homescreen() {
 
   const navigation = useNavigation();
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
 
     <View style={styles.main}>
+      {/*  */}
+      {/* <View style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+            setModalVisible(!modalVisible);
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <Text style={styles.textStyle}>Hide Modal</Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
 
+      </View> */}
+
+      {/*  */}
       <View style={styles.headingcontainer}>
 
         <View>
           <Text style={styles.heading}>Hello, Anderson</Text>
-          <Text style={styles.txt}>You have 4 active devices</Text>
+          <Text style={styles.txt}>You have 4 active cameras</Text>
         </View>
 
         <View style={styles.btncontainerHeader}>
@@ -32,12 +59,19 @@ export default function Homescreen() {
               style={styles.ImageIconStyle}
             />
           </TouchableOpacity >
-          <Text style={styles.btnHeader} ><Ionicons name="add" size={35} color="black" /></Text>
+
+          <Pressable
+            style={[styles.button, styles.buttonOpen]}
+            onPress={() => setModalVisible(true)}>
+            {/* <Text style={styles.textStyle}>Show Modal</Text> */}
+
+            <Text style={styles.btnHeader} ><Ionicons name="add" size={35} color="black" /></Text>
+          </Pressable>
         </View>
       </View>
 
       <ScrollView
-        // horizontal={true} 
+        horizontal={true}
         style={{ flex: 1 }}
       >
 
@@ -45,21 +79,69 @@ export default function Homescreen() {
           <View
             style={styles.headerIcon}
           >
-            <TouchableOpacity >
-              <FontAwesome5 name="paw" size={34} />
-            </TouchableOpacity>
-            <TouchableOpacity >
-              <FontAwesome5 name="warehouse" size={34} />
-            </TouchableOpacity >
-            <TouchableOpacity >
-              <FontAwesome5 name="business-time" size={34} />
-            </TouchableOpacity >
-            <TouchableOpacity >
-              <FontAwesome5 name="box" size={34} />
-            </TouchableOpacity >
-            <TouchableOpacity >
-              <FontAwesome5 name="lightbulb" size={34} />
-            </TouchableOpacity >
+            <View style={styles.headerIconchild}>
+              <TouchableOpacity >
+                <EvilIcons name="close" size={24} style={styles.cross} />
+              </TouchableOpacity>
+              <TouchableOpacity >
+                <FontAwesome5 name="paw" size={34} />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.headerIconchild}>
+              <TouchableOpacity >
+                <EvilIcons name="close" size={24} style={styles.cross} />
+              </TouchableOpacity>
+              <TouchableOpacity >
+                <FontAwesome5 name="lock" size={34} />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.headerIconchild}>
+              <TouchableOpacity >
+                <EvilIcons name="close" size={24} style={styles.cross} />
+              </TouchableOpacity>
+              <TouchableOpacity >
+                <FontAwesome5 name="thermometer" size={34} />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.headerIconchild}>
+              <TouchableOpacity >
+                <EvilIcons name="close" size={24} style={styles.cross} />
+              </TouchableOpacity>
+              <TouchableOpacity >
+                <FontAwesome5 name="warehouse" size={34} />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.headerIconchild}>
+              <TouchableOpacity >
+                <EvilIcons name="close" size={24} style={styles.cross} />
+              </TouchableOpacity>
+              <TouchableOpacity >
+                <FontAwesome5 name="water" size={34} />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.headerIconchild}>
+              <TouchableOpacity >
+                <EvilIcons name="close" size={24} style={styles.cross} />
+              </TouchableOpacity>
+              <TouchableOpacity >
+                <FontAwesome5 name="lightbulb" size={34} />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.headerIconchild}>
+              <TouchableOpacity >
+                <EvilIcons name="close" size={24} style={styles.cross} />
+              </TouchableOpacity>
+              <TouchableOpacity >
+                <FontAwesome5 name="edit" size={34} color="skyblue" />
+              </TouchableOpacity>
+            </View>
+
+
           </View>
         </Card>
       </ScrollView>
@@ -137,6 +219,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-evenly"
   },
+  headerIconchild: {
+    borderRadius: 5,
+    backgroundColor: "white",
+    height: '100%',
+    width: 80,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: 'center',
+    borderColor: "gray",
+    marginRight: 15
+  },
+  cross: {
+    marginLeft: 50
+  },
   ImageIconStyle: {
     // padding: 10,
     // margin: 5,
@@ -188,7 +284,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     // flex: 1,
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     width: "100%",
     // backgroundColor:"yellow",
     borderColor: "red",
@@ -196,8 +292,6 @@ const styles = StyleSheet.create({
     // shadowRadius: 16.84,
     // shadowColor: "#000",
     // elevation: 3,
-    height: 50,
-    alignItems: "center",
     // borderRadius: 5,
     // shadowColor: 'skyblue',
 
@@ -375,5 +469,48 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: "40%",
     // padding: "2%"
-  }
+  },
+
+
+  centeredView: {
+    // flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 2,
+    elevation: 2,
+  },
+  buttonOpen: {
+    // backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
 })

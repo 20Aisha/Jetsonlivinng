@@ -38,7 +38,7 @@ export default function Footer() {
             tabBarLabel: '',
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
-              <FontAwesome5 name="home" color={color} size={size} />
+              <AntDesign name="home" color={color} size={size} />
             ),
           }}
         />
@@ -48,7 +48,7 @@ export default function Footer() {
             tabBarLabel: '',
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
-              <FontAwesome5 name="video" color={color} size={size} />
+              <AntDesign name="videocamera" color={color} size={size} />
             ),
           }}
         />
