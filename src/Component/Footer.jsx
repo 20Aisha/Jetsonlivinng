@@ -15,6 +15,7 @@ import Setting from './Setting';
 import Devicescreen from './Devicescreen';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import AllCamerasScreen from './AllCamerasScreen';
 
 export default function Footer() {
 
@@ -43,7 +44,7 @@ export default function Footer() {
           }}
         />
 
-        <Tab.Screen name='devicescreen' component={Devicescreen}
+        <Tab.Screen name='devicescreen' component={AllCamerasScreen}
           options={{
             tabBarLabel: '',
             headerShown: false,

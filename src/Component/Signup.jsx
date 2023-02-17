@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TextInput, Button, ImageBackground, ScrollView } from 'react-native'
 import React from 'react'
-import logo from '../assets/logo2.png';
+import logo from '../assets/JetsonLiving.png';
 import siginBack from '../assets/siginBack.png'
 import { useNavigation } from '@react-navigation/native';
 
@@ -25,10 +25,16 @@ export default function Signup() {
 
               {/* <View style={styles.loginform}> */}
               <View>
-                <Image
+                <View style={styles.tinyLogo}>
+                  <Image
+                    style={styles.logo}
+                    source={logo}
+                  />
+                </View>
+                {/* <Image
                   style={styles.tinyLogo}
                   source={logo}
-                />
+                /> */}
 
                 <TextInput
                   style={styles.input}
@@ -83,9 +89,9 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    display:"flex",
+    display: "flex",
     justifyContent: 'center',
-    paddingTop:"10%"
+    paddingTop: "10%"
   },
   main: {
     display: "flex",
@@ -96,7 +102,7 @@ const styles = StyleSheet.create({
   },
   logincontainer: {
     // width: "100%",
-    // height: "160%",
+    // height: "160%"
     backgroundColor: "white",
     padding: 20,
     elevation: 10,
@@ -105,12 +111,22 @@ const styles = StyleSheet.create({
 
   },
   tinyLogo: {
-    width: "100%",
-    // height: 100,
+    // width: "100%",
+    // height: 190,
+
+    justifyContent: 'center',
+    alignItems: 'center',
+    // width: 500,
+    // height: 200,
     // padding: 80,
     // margin:80,
     // marginLeft:10
 
+  },
+  logo:{
+    width: 400,
+    minWidth: '20%',
+    height: 200,
   },
   loginform: {
     width: "100%",

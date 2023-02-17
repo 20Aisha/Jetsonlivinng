@@ -10,6 +10,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Footer from './Footer';
 import { useNavigation } from '@react-navigation/native';
 import { Card, Button } from 'react-native-paper';
+import alexaIcon from '../assets/alexaIcon.jpeg'
 
 export default function Homescreen() {
 
@@ -55,7 +56,8 @@ export default function Homescreen() {
 
           <TouchableOpacity onPress={() => navigation.navigate('Gridscreen')}>
             <Image
-              source={require('../assets/alexaM.png')}
+              // source={require('../assets/alexaIcon.jpeg')}
+              source={alexaIcon}
               style={styles.ImageIconStyle}
             />
           </TouchableOpacity >

@@ -19,6 +19,7 @@ import VideoScreen from './Component/Video';
 import StartScreen from './Component/StartScreen';
 import Footer from './Component/Footer';
 import VideoPlayer from './Component/VideoPlayer';
+import AllCamerasScreen from './Component/AllCamerasScreen';
 
 // import Navbar from "../Navbar";
 // import Footer from "../Footer";
@@ -47,8 +48,13 @@ const AuthNavigator = (raza) => (
     <Stack.Screen
       name="Devicescreen"
       options={{headerShown: false}}
-      component={Devicescreen}
+      component={AllCamerasScreen}
     />
+    {/* <Stack.Screen
+      name="Devicescreen"
+      options={{headerShown: false}}
+      component={Devicescreen}
+    /> */}
     <Stack.Screen
       name="Gridscreen"
       options={{headerShown: false}}

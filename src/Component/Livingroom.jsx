@@ -41,7 +41,7 @@ export default function Livingroom() {
             {/* <Text>Raza</Text> */}
             <FontAwesome5 name="volume-mute" size={28} color="#1877F2" />
 
-            <MaterialIcons name="crop-rotate" size={28} color="#1877F2" onPress={() => navigation.navigate('VideoScreen')} />
+            <MaterialIcons name="crop-rotate" size={28} color="#1877F2" onPress={() => navigation.navigate('VideoPlayer')} />
           </View>
           <View style={styles.historybox}>
             <Text style={styles.para} onPress={() => navigation.navigate('Recording')}>24 hour video recording video</Text>
