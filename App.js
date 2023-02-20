@@ -16,34 +16,28 @@ import VideoPlayer from './src/Component/VideoPlayer';
 import Devicescreen from './src/Component/Devicescreen';
 import AllCamerasScreen from './src/Component/AllCamerasScreen';
 import Livingroom from './src/Component/Livingroom';
+import Camerascreen1 from './src/Component/Camerascreen1';
+import Camerascreen3 from './src/Component/Camerascreen3';
 
 // https://oblador.github.io/react-native-vector-icons/
-
-
-
 
 const App = () => {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
   return (
-
     <NavigationContainer options={{headerShown: false}}>
       {/* <Camerascreen /> */}
       {/* <CalenderScreen /> */}
       {/* <VideoPlayer /> */}
       <AuthNavigator />
-     
-     
+
       {/* <VideoScreen /> */}
       {/* <Livingroom /> */}
       {/* <Devicescreen /> */}
       {/* <Domi /> */}
       {/* <AllCamerasScreen /> */}
-
     </NavigationContainer>
-
-   
   );
 };
 
