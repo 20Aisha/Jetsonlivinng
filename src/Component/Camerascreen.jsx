@@ -18,7 +18,7 @@ export default function Camerascreen() {
             <Text style={styles.imgtxt}>Lounge </Text>
             <TouchableOpacity onPress={() => navigation.navigate('Gridscreen')}>
               <Image
-                source={require('../assets/alexaIcon.jpeg')}
+                source={require('../assets/alexaGrey.png')}
                 style={styles.ImageIconStyle}
               />
             </TouchableOpacity >

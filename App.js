@@ -15,6 +15,8 @@ import Camerascreen from './src/Component/Camerascreen';
 import VideoPlayer from './src/Component/VideoPlayer';
 import Devicescreen from './src/Component/Devicescreen';
 import AllCamerasScreen from './src/Component/AllCamerasScreen';
+import Livingroom from './src/Component/Livingroom';
+
 // https://oblador.github.io/react-native-vector-icons/
 
 
@@ -34,6 +36,7 @@ const App = () => {
      
      
       {/* <VideoScreen /> */}
+      {/* <Livingroom /> */}
       {/* <Devicescreen /> */}
       {/* <Domi /> */}
       {/* <AllCamerasScreen /> */}

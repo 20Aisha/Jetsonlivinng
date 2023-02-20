@@ -10,7 +10,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Footer from './Footer';
 import { useNavigation } from '@react-navigation/native';
 import { Card, Button } from 'react-native-paper';
-import alexaIcon from '../assets/alexa grey.png'
+import alexaGrey from '../assets/alexaGrey.png'
 
 export default function Homescreen() {
 
@@ -56,8 +56,8 @@ export default function Homescreen() {
 
           <TouchableOpacity onPress={() => navigation.navigate('Gridscreen')}>
             <Image
-              // source={require('../assets/alexaIcon.jpeg')}
-              source={alexaIcon}
+              source={require('../assets/alexaGrey.png')}
+              // source={alexaGrey}
               style={styles.ImageIconStyle}
             />
           </TouchableOpacity >
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: "white",
     height: '100%',
-    width: 80,
+    width: 90,
     display: "flex",
     justifyContent: "center",
     alignItems: 'center',
@@ -252,19 +252,20 @@ const styles = StyleSheet.create({
   },
   btnHeader: {
     borderRadius: 4,
-    backgroundColor: '#F2F2F2',
-    minWidth: '15%',
+    backgroundColor: 'white',
+    // minWidth: '15%',
     textAlign: 'center',
     borderRadius: 10,
-    marginRight: 5,
+    // marginRight: 5,
     fontSize: 22,
-    height: 50,
+    // height: 50,
     width: 50,
-    display: "flex",
-    justifyContent: 'center',
-    alignItems: "center",
+    // backgroundColor:"skyblue"
+    // display: "flex",
+    // justifyContent: 'center',
+    // alignItems: "center",
     // paddingTop: "10%",
-     // shadowColor: 'skyblue',
+    // shadowColor: 'skyblue',
     // elevation: 8,
     // marginBottom:"2%"
     // marginTop:"-12%",
@@ -501,9 +502,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    borderRadius: 20,
-    padding: 2,
-    elevation: 2,
+    // borderRadius: 20,
+    // padding: 2,
+    // elevation: 2,
   },
   buttonOpen: {
     // backgroundColor: '#F194FF',

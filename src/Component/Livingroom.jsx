@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View, ImageBackground } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity, ImageBackground } from 'react-native'
 import React from 'react'
 import Footer from './Footer';
 import laungimage from '../assets/lounge.jpg';
@@ -8,7 +8,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import alexaIcon from '../assets/alexa grey.png'
+import alexaGrey from '../assets/alexaGrey.png'
 // import { Feather } from '@expo/vector-icons';
 // import { FontAwesome5 } from '@expo/vector-icons';
 // import { SimpleLineIcons } from '@expo/vector-icons';
@@ -32,9 +32,9 @@ export default function Livingroom() {
 
         {/* body */}
         <View style={styles.bodyconatiner}>
-          <ImageBackground 
-          // source={laungimage} 
-          resizeMode="cover" style={styles.imagevertical}>
+          <ImageBackground
+            // source={laungimage} 
+            resizeMode="cover" style={styles.imagevertical}>
           </ImageBackground>
 
           <View style={styles.options}>
@@ -49,13 +49,15 @@ export default function Livingroom() {
           </View>
 
           <View style={styles.moreoptions}>
-            <AntDesign name="camera" size={40} color="gray" />  
+            <AntDesign name="camera" size={40} color="gray" />
             <TouchableOpacity onPress={() => navigation.navigate('Gridscreen')}>
-            <Image
-              source={alexaIcon}
-              size={40}
-            />
-          </TouchableOpacity >
+              <Image
+                source={alexaGrey}
+                size={28}
+                style={{ width: 50, height: 50 }}
+
+              />
+            </TouchableOpacity >
             <Feather name="mic-off" size={40} color="gray" />
             <FontAwesome5 name="images" size={40} color="gray" />
             <FontAwesome5 name="video" size={40} color="gray" />
@@ -72,7 +74,7 @@ export default function Livingroom() {
 
 const styles = StyleSheet.create({
   main: {
-    paddingTop: 10,  
+    paddingTop: 10,
     display: "flex",
     flexDirection: "column",
     flex: 1,
