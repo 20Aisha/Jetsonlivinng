@@ -8,6 +8,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import alexaIcon from '../assets/alexa grey.png'
 // import { Feather } from '@expo/vector-icons';
 // import { FontAwesome5 } from '@expo/vector-icons';
 // import { SimpleLineIcons } from '@expo/vector-icons';
@@ -48,8 +49,15 @@ export default function Livingroom() {
           </View>
 
           <View style={styles.moreoptions}>
-            <AntDesign name="camera" size={40} color="gray" />
+            <AntDesign name="camera" size={40} color="gray" />  
+            <TouchableOpacity onPress={() => navigation.navigate('Gridscreen')}>
+            <Image
+              source={alexaIcon}
+              size={40}
+            />
+          </TouchableOpacity >
             <Feather name="mic-off" size={40} color="gray" />
+            <FontAwesome5 name="images" size={40} color="gray" />
             <FontAwesome5 name="video" size={40} color="gray" />
           </View>
         </View>

@@ -44,7 +44,7 @@ export default function Setting(raza) {
             marginRight: "5%"
           }}>
           <Feather name="arrow-left" size={24} color="#1877F2" onPress={() => navigation.navigate('Home')} />
-          <Text style={styles.heading}>Setting</Text>
+          <Text style={styles.heading}>Settings</Text>
           <Menu
             visible={visible}
             style={{ color: "blue" }}
@@ -78,7 +78,7 @@ export default function Setting(raza) {
             <View style={styles.optioncontainer}>
               <View style={styles.align}>
                 <Feather name="bell" size={24} color="black" />
-                <Text style={styles.setingoption} onPress={() => navigation.navigate('Notification')}>Setting</Text>
+                <Text style={styles.setingoption} onPress={() => navigation.navigate('Notification')}>Settings</Text>
               </View>
 
               <Switch

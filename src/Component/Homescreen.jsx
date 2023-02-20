@@ -10,7 +10,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Footer from './Footer';
 import { useNavigation } from '@react-navigation/native';
 import { Card, Button } from 'react-native-paper';
-import alexaIcon from '../assets/alexaIcon.jpeg'
+import alexaIcon from '../assets/alexa grey.png'
 
 export default function Homescreen() {
 
@@ -88,6 +88,7 @@ export default function Homescreen() {
               <TouchableOpacity >
                 <FontAwesome5 name="paw" size={34} />
               </TouchableOpacity>
+              <Text> Animal </Text>
             </View>
 
             <View style={styles.headerIconchild}>
@@ -97,6 +98,7 @@ export default function Homescreen() {
               <TouchableOpacity >
                 <FontAwesome5 name="lock" size={34} />
               </TouchableOpacity>
+              <Text> Lock </Text>
             </View>
             <View style={styles.headerIconchild}>
               <TouchableOpacity >
@@ -105,6 +107,7 @@ export default function Homescreen() {
               <TouchableOpacity >
                 <FontAwesome5 name="thermometer" size={34} />
               </TouchableOpacity>
+              <Text> Thermometer </Text>
             </View>
 
             <View style={styles.headerIconchild}>
@@ -114,6 +117,7 @@ export default function Homescreen() {
               <TouchableOpacity >
                 <FontAwesome5 name="warehouse" size={34} />
               </TouchableOpacity>
+              <Text> Warehouse </Text>
             </View>
 
             <View style={styles.headerIconchild}>
@@ -123,6 +127,7 @@ export default function Homescreen() {
               <TouchableOpacity >
                 <FontAwesome5 name="water" size={34} />
               </TouchableOpacity>
+              <Text> Water </Text>
             </View>
 
             <View style={styles.headerIconchild}>
@@ -132,6 +137,7 @@ export default function Homescreen() {
               <TouchableOpacity >
                 <FontAwesome5 name="lightbulb" size={34} />
               </TouchableOpacity>
+              <Text> Brightness </Text>
             </View>
 
             <View style={styles.headerIconchild}>
@@ -141,6 +147,7 @@ export default function Homescreen() {
               <TouchableOpacity >
                 <FontAwesome5 name="edit" size={34} color="skyblue" />
               </TouchableOpacity>
+              <Text> Edit </Text>
             </View>
 
 
@@ -180,12 +187,12 @@ export default function Homescreen() {
             <Text>
               {/* <Feather name="share-2" size={24} color="black" /> */}
               <MaterialIcons name="device-hub" size={30} color="skyblue" />
-            </Text><Text>View all devices</Text></View>
+            </Text><Text>View all cameras</Text></View>
         </TouchableOpacity>
         <View style={styles.bgdbtn}>
           <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('Statusscreen')}><Text> <Ionicons name="stats-chart" size={24} color="skyblue" style={{ padding: 9 }} /> Stats</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('Recording')}><Text>  <AntDesign name="videocamera" size={24} color="skyblue" /> Recording</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('SettingScreen')}><Text> <AntDesign name="setting" size={24} color="skyblue" /> Setting</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('Recording')}><Text>  <AntDesign name="videocamera" size={24} color="skyblue" /> Recordings </Text></TouchableOpacity>
+          <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('SettingScreen')}><Text> <AntDesign name="setting" size={24} color="skyblue" /> Settings </Text></TouchableOpacity>
         </View>
 
       </View>
@@ -248,24 +255,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F2F2',
     minWidth: '15%',
     textAlign: 'center',
-    color: 'skyBlue',
-    shadowColor: 'skyblue',
     borderRadius: 10,
-    elevation: 8,
+    marginRight: 5,
+    fontSize: 22,
     height: 50,
     width: 50,
     display: "flex",
     justifyContent: 'center',
     alignItems: "center",
     // paddingTop: "10%",
-    marginRight: 5,
-    fontSize: 22,
+     // shadowColor: 'skyblue',
+    // elevation: 8,
     // marginBottom:"2%"
     // marginTop:"-12%",
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    textShadowColor: "skyblue"
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // textShadowColor: "skyblue"
   }
   ,
   setdisplayofpage: {

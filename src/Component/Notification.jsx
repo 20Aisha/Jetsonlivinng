@@ -27,7 +27,7 @@ export default function Notification() {
             <View style={styles.headingconatiner}>
                 {/* <SimpleLineIcons name="arrow-left" size={24} color="#1877F2" /> */}
                 <Feather name="arrow-left" size={24} color="#1877F2" onPress={() => navigation.navigate('Home')} />
-                <Text style={styles.heading}>Notifiaction</Text>
+                <Text style={styles.heading}>Notifications</Text>
                 <AntDesign name="setting" size={24} color="#1877F2"  onPress={() => navigation.navigate('SettingScreen')}/>
             </View>
             <View style={styles.setdisplayofpage}>
