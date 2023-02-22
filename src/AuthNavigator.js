@@ -16,6 +16,15 @@ import Camerascreen7 from './Component/GridScreen/Camerascreen7';
 import Camerascreen8 from './Component/GridScreen/Camerascreen8';
 import Camerascreenv1 from './Component/GridScreen/Camerascreenv1';
 
+import VertcalScreen1 from './Component/VierticalScreen/VerticalScreen1';
+import VerticalScreen2 from './Component/VierticalScreen/VertcalScreen2';
+import VerticalScreen3 from './Component/VierticalScreen/VericalScreen3';
+import VerticalScreen4 from './Component/VierticalScreen/VerticalScreen4';
+import VerticalScreen5 from './Component/VierticalScreen/VerticalScreen5';
+import VerticalScreen6 from './Component/VierticalScreen/VerticalScreen6';
+import VerticalScreen7 from './Component/VierticalScreen/VertcalScreen7';
+import VerticalScreen8 from './Component/VierticalScreen/VerticalScreen8';
+
 import Livingroom from './Component/Livingroom';
 import Recording from './Component/Recording';
 import Notification from './Component/Notification';
@@ -27,6 +36,7 @@ import StartScreen from './Component/StartScreen';
 import Footer from './Component/Footer';
 import VideoPlayer from './Component/VideoPlayer';
 import AllCamerasScreen from './Component/AllCamerasScreen';
+import Officescreen from './Component/Officescreen';
 
 // import Navbar from "../Navbar";
 // import Footer from "../Footer";
@@ -65,6 +75,69 @@ const AuthNavigator = () => (
       options={{headerShown: false}}
       component={Gridscreen}
     />
+    <Stack.Screen
+      name="Officescreen"
+      options={{headerShown: false}}
+      component={Officescreen}
+    />
+    {/*  */}
+    <Stack.Screen
+      name="VertcalScreen1"
+      options={{
+        headerShown: false,
+      }}
+      component={VertcalScreen1}
+    />
+    <Stack.Screen
+      name="VerticalScreen2"
+      options={{
+        headerShown: false,
+      }}
+      component={VerticalScreen2}
+    />
+    <Stack.Screen
+      name="VerticalScreen3"
+      options={{
+        headerShown: false,
+      }}
+      component={VerticalScreen3}
+    />
+    <Stack.Screen
+      name="VerticalScreen4"
+      options={{
+        headerShown: false,
+      }}
+      component={VerticalScreen4}
+    />
+    <Stack.Screen
+      name="VerticalScreen5"
+      options={{
+        headerShown: false,
+      }}
+      component={VerticalScreen5}
+    />
+    <Stack.Screen
+      name="VerticalScreen6"
+      options={{
+        headerShown: false,
+      }}
+      component={VerticalScreen6}
+    />
+    <Stack.Screen
+      name="VerticalScreen7"
+      options={{
+        headerShown: false,
+      }}
+      component={VerticalScreen7}
+    />
+    <Stack.Screen
+      name="VerticalScreen8"
+      options={{
+        headerShown: false,
+      }}
+      component={VerticalScreen8}
+    />
+    {/*  */}
     <Stack.Screen
       name="Camerascreen"
       options={{

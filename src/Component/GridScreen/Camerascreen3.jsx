@@ -9,22 +9,30 @@ export default function Camerascreen3() {
   return (
     <View style={styles.main}>
       <View style={styles.setdisplayofpage}>
+      <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
         <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
           <Text style={styles.imgtxt}>Front</Text>
           <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
         </ImageBackground>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
         <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
           <Text style={styles.imgtxt}>Room</Text>
           <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
         </ImageBackground>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
         <ImageBackground source={laung2image} resizeMode="cover" style={styles.image}>
           <Text style={styles.imgtxt}>Lounge</Text>
           <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
         </ImageBackground>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
         <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
           <Text style={styles.imgtxt}>Backarea</Text>
           <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
         </ImageBackground>
+          </TouchableOpacity>
 
       </View>
       {/* <View style={styles.flexdown}>

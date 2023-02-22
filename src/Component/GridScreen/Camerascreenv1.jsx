@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'space-between',
     marginBottom: 1
+    
   },
   ImageIconStyle: {
     // padding: 10,

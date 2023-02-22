@@ -16,6 +16,7 @@ import Devicescreen from './Devicescreen';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import AllCamerasScreen from './AllCamerasScreen';
+import Officescreen from './Officescreen';
 
 export default function Footer() {
 
@@ -41,6 +42,15 @@ export default function Footer() {
             tabBarIcon: ({ color, size }) => (
               <AntDesign name="home" color={color} size={size} />
             ),
+          }}
+        />
+
+        <Tab.Screen name='Officescreen' component={Officescreen}
+          options={{
+            tabBarLabel: '',
+            tabBarIconStyle: { display: "none" },
+            headerShown: false,
+            tabBarItemStyle: { display: "none" }
           }}
         />
 

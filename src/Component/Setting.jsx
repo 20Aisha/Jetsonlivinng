@@ -43,18 +43,18 @@ export default function Setting({ navigation }) {
             marginRight: "5%"
           }}>
           <Feather name="arrow-left" size={24} color="#1877F2" onPress={() => navigation.navigate('Home')} />
-          <Text style={styles.heading}>Notifications</Text>
+          <Text style={styles.heading}>Settings</Text>
           <Menu
             visible={visible}
             style={{ color: "blue" }}
             onDismiss={closeMenu}
             anchor={<Fontisto name="more-v-a" onPress={openMenu} size={34} color="#1877F2" />
             }>
-            <Menu.Item onPress={() => {navigation.navigate("Camerasceen2"),setVisible(false)}} title="Office" />
+            <Menu.Item onPress={() => { navigation.navigate("Officescreen"), setVisible(false), { language: "Office" } }} title="Office" />
             <Divider />
-            <Menu.Item onPress={() => { setVisible(false) }} title="House" />
+            <Menu.Item onPress={() => { navigation.navigate("Home"), setVisible(false), { language: "Home" } }} title="Home" />
             <Divider />
-            <Menu.Item onPress={() => { setVisible(false) }} title="log Out" />
+            {/* <Menu.Item onPress={() => { setVisible(false) }} title="log Out" /> */}
           </Menu>
         </View>
       </Provider>

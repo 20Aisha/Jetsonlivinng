@@ -6,12 +6,13 @@ import laung2image from '../../assets/lounge2.jpg';
 import roomimage from '../../assets/room.jpg';
 import camimage from '../../assets/cameraimg.jpg';
 import addimage from '../../assets/add.png';
+
 // import Footer from './Footer';
 
 
 
 
-export default function Camerascreen5() {
+export default function VerticalScreen2() {
 
 
   const navigation = useNavigation();
@@ -22,85 +23,85 @@ export default function Camerascreen5() {
       <View style={styles.setdisplayofpage}>
         <View style={styles.imgcontainer} >
 
-          <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
+{/* <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}> */}
+<ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
+              <Text style={styles.imgtxt}>Front</Text>
+              <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
+            </ImageBackground>
+              {/* </TouchableOpacity> */}
+
+
+          {/* <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}> */}
             <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
               <Text style={styles.imgtxt}>Front</Text>
               <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
             </ImageBackground>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
-            <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
-              <Text style={styles.imgtxt}>Room</Text>
-              <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
-            </ImageBackground>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.imgcontainer} >
-
-          <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
+              {/* </TouchableOpacity> */}
             <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
               <Text style={styles.imgtxt}>Front</Text>
               <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
             </ImageBackground>
-          </TouchableOpacity>
+          {/* </TouchableOpacity> */}
 
-          <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
+          {/* <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}> */}
             <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
               <Text style={styles.imgtxt}>Room</Text>
               <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
             </ImageBackground>
-          </TouchableOpacity>
+          {/* </TouchableOpacity> */}
         </View>
-
         <View style={styles.imgcontainer} >
 
-<TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
-  <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
-    <Text style={styles.imgtxt}>Front</Text>
-    <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
-  </ImageBackground>
-</TouchableOpacity>
+{/* <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}> */}
+<ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
+              <Text style={styles.imgtxt}>Front</Text>
+              <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
+            </ImageBackground>
+              {/* </TouchableOpacity> */}
 
-<TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
-  <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
-    <Text style={styles.imgtxt}>Room</Text>
-    <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
-  </ImageBackground>
-</TouchableOpacity>
-</View>
-<View style={styles.imgcontainer} >
 
-<TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
-  <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
-    <Text style={styles.imgtxt}>Front</Text>
-    <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
-  </ImageBackground>
-</TouchableOpacity>
+          {/* <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}> */}
+            <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
+              <Text style={styles.imgtxt}>Front</Text>
+              <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
+            </ImageBackground>
+              
+        </View>
+       
+        <View style={styles.imgcontainer} >
 
-<TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
-  <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
-    <Text style={styles.imgtxt}>Room</Text>
-    <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
-  </ImageBackground>
-</TouchableOpacity>
-</View>
-<View style={styles.imgcontainer} >
+{/* <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}> */}
+<ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
+              <Text style={styles.imgtxt}>Front</Text>
+              <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
+            </ImageBackground>
+              {/* </TouchableOpacity> */}
 
-<TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
-  <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
-    <Text style={styles.imgtxt}>Front</Text>
-    <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
-  </ImageBackground>
-</TouchableOpacity>
 
-<TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
-  <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
-    <Text style={styles.imgtxt}>Room</Text>
-    <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
-  </ImageBackground>
-</TouchableOpacity>
-</View>
+          {/* <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}> */}
+            <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
+              <Text style={styles.imgtxt}>Front</Text>
+              <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
+            </ImageBackground>
+              {/* </TouchableOpacity> */}
+            <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
+              <Text style={styles.imgtxt}>Front</Text>
+              <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
+            </ImageBackground>
+          {/* </TouchableOpacity> */}
+
+          {/* <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}> */}
+            <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
+              <Text style={styles.imgtxt}>Room</Text>
+              <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
+            </ImageBackground>
+          {/* </TouchableOpacity> */}
+        </View>
+        
+        
+
+        
+        
 
 
       </View>
@@ -134,7 +135,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 20,
     marginBottom: 1,
-    width:350
   },
   imagecam:
   {
