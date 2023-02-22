@@ -12,7 +12,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import { Checkbox, List, MD3Colors } from 'react-native-paper';
 import ViewShot from 'react-native-view-shot';
-// import FontAwesome from 'react-native-vector-icons/MaterialIcons';
+// import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import alexaGrey from '../assets/alexaGrey.png'
 import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -206,37 +206,15 @@ const Livingroom = () => {
                 <View
                   style={styles.IconScreen}
                 >
-                  <List.Section >
-                    <List.Item title="loerm ipsum dollar magnam"
-                      style={styles.textcolor}
-                      left={() => <Checkbox
-                        status={checked ? 'checked' : 'unchecked'}
-                        onPress={() => {
-                          setChecked(!checked);
-                        }} />}
-                    />
-                    <List.Item title="loerm ipsum dollar magnam"
-                      left={() => <Checkbox
-                        status={checked ? 'checked' : 'unchecked'}
-                        onPress={() => {
-                          setChecked(!checked);
-                        }} />}
-                    />
-                    <List.Item title="loerm ipsum dollar magnam"
-                      left={() => <Checkbox
-                        status={checked ? 'checked' : 'unchecked'}
-                        onPress={() => {
-                          setChecked(!checked);
-                        }} />}
-                    />
-                    <List.Item title="loerm ipsum dollar magnam"
-                      left={() => <Checkbox
-                        status={checked ? 'checked' : 'unchecked'}
-                        onPress={() => {
-                          setChecked(!checked);
-                        }} />}
-                    />
-                  </List.Section>
+                  <Text style={{ color: "white", marginTop: "2%" }}><FontAwesome name="edit" size={30} color="white" />  ANSWERN THE DOOR </Text>
+                  <Text style={{ color: "white", marginTop: "2%" }}><FontAwesome name="edit" size={30} color="white" /> DETER</Text>
+                  <Text style={{ color: "white", marginTop: "2%" }}> <FontAwesome name="edit" size={30} color="white" /> PACKAGE IS HERE</Text>
+                  <Text style={{ color: "white", marginTop: "2%" }}><FontAwesome name="edit" size={30} color="white" /> EMERGENCY</Text>
+
+
+
+
+                
                   {/* <TouchableOpacity onPress={() => onShare()}
                   // style={styles.fullscreenShare}
                   >
@@ -261,14 +239,13 @@ const Livingroom = () => {
                     <Octicons name={isMute ? "mute" : "unmute"} size={34} color="gray" />
                   </TouchableOpacity> */}
 
-                  {/* <TouchableOpacity
+                  <TouchableOpacity
                     onPress={handleFullscreen}
-                  // hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                  // style={styles.fullscreenButton}
-                  // style={styles.fullscreenButton}
+                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                  style={styles.fullscreenButton}
                   >
                     {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={35} color="gray" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="gray" />}
-                  </TouchableOpacity> */}
+                  </TouchableOpacity>
                 </View>
 
                 {/* <ProgressBar
@@ -413,27 +390,30 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
   },
   fullscreenButton: {
-    // flex: 1,
+    flex: 1,
     // flexDirection: 'row',
-    alignSelf: 'flex-end',
-    alignItems: 'flex-end',
+    alignSelf: 'flex-start',
+    alignItems: 'flex-start',
     paddingRight: 10,
-    // marginTop: 30,
+    marginTop: 30,
+    marginLeft:10,
     // margin:10,
     // padding:10,
-    // justifyContent:"space-evenly"
+    justifyContent:"space-evenly"
     // backgroundColor:"red"
   },
   IconScreen: {
     flex: 1,
     flexDirection: 'column',
-    alignSelf: 'flex-end',
+    alignSelf: 'flex-start',
     alignItems: 'stretch',
     paddingRight: 10,
     // marginTop: 30,
     // margin:10,
     // padding:10,
-    justifyContent: "space-evenly"
+
+    // justifyContent:"space-between",
+    // flexWrap:"wrap-reverse"
     // backgroundColor:"red"
   },
   textcolor: {

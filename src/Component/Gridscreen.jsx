@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
 import Group111 from '../assets/Icons/Group111.png';
 import Group110 from '../assets/Icons/Group110.png';
 import Group109 from '../assets/Icons/Group109.png';
@@ -19,13 +18,8 @@ import Group101 from '../assets/Icons/Group101.png';
 import Group102 from '../assets/Icons/Group102.png';
 import Group103 from '../assets/Icons/Group103.png';
 import Footer from './Footer';
-
-
 export default function Gridscreen() {
-
-
     const navigation = useNavigation();
-
     return (
         <View style={styles.main}>
             <View>
@@ -33,40 +27,32 @@ export default function Gridscreen() {
                     <View style={styles.views}>
                         <Text style={styles.color}>Vertical {'\n'}</Text>
                         <View >
-                            <TouchableOpacity onPress={() => navigation.navigate('Camerascreen')} style={{ paddingVertical: 8, }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Camerascreenv1')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group111} resizeMode="cover" />
                             </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Camerascreen')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group110} resizeMode="cover" />
                             </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Camerasceen2')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group109} resizeMode="cover" />
                             </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Camerascreen4')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group108} resizeMode="cover" />
                             </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Camerascreen5')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group107} resizeMode="cover" />
                             </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Camerascreen6')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group106} resizeMode="cover" />
                             </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Camerascreen7')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group105} resizeMode="cover" />
                             </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Camerascreen8')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group104} resizeMode="cover" />
                             </TouchableOpacity>
                         </View>
                     </View>
-
                     <View style={styles.views}>
                         {/* <Text style={styles.colorHorizontal}>Horizontal{'\n'}</Text> */}
                         <Text style={styles.color}>Horizontal {'\n'}</Text>
@@ -74,35 +60,29 @@ export default function Gridscreen() {
                             <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group96} resizeMode="cover" />
                             </TouchableOpacity>
-
                             <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group97} resizeMode="cover" />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group98} resizeMode="cover" />
                             </TouchableOpacity>
-
                             <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group99} resizeMode="cover" />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group100} resizeMode="cover" />
                             </TouchableOpacity>
-
                             <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={styles.ImageICon}>
                                 <Image source={Group101} resizeMode="cover" />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group102} resizeMode="cover" />
                             </TouchableOpacity>
-
                             <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={{ paddingVertical: 8, }}>
                                 <Image source={Group103} resizeMode="cover" />
                             </TouchableOpacity>
                         </View>
                     </View>
-
-
                 </View>
                 <View style={styles.closbtn}>
                     <Button
@@ -119,7 +99,6 @@ export default function Gridscreen() {
         </View >
     )
 }
-
 const styles = StyleSheet.create({
     main: {
         paddingTop: 20,
@@ -160,10 +139,7 @@ const styles = StyleSheet.create({
         color: "#1877F2",
         fontSize: 19,
     },
-
-
     subhor: {
-
         marginTop: 28,
         display: "flex",
         flexDirection: "row",
@@ -175,5 +151,4 @@ const styles = StyleSheet.create({
         marginTop: 10,
         borderRadius: 10,
     },
-
 })

@@ -1,7 +1,7 @@
 import { ImageBackground, StyleSheet, Text, View, Image, Switch, Button } from 'react-native';
 import laungimage from '../assets/lounge.jpg';
 import React, { useState } from 'react'
-import { useNavigation } from '@react-navigation/native';
+// import { useNavigation } from '@react-navigation/native';
 import { Menu, Divider, Provider } from 'react-native-paper';
 
 import Feather from 'react-native-vector-icons/Feather';
@@ -11,18 +11,17 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
-export default function Setting(raza) {
+export default function Setting({ navigation }) {
 
   const [RoutaA, setRoutaA] = useState('condition');
 
-  raza = { RoutaA }
-  // console.log(raza, "raza");
 
   const [isEnabled, setIsEnabled] = useState(false);
   const [visible, setVisible] = React.useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
+  console.log();
 
   const openMenu = () => setVisible(true);
   const closeMenu = () => setVisible(false);
@@ -44,14 +43,14 @@ export default function Setting(raza) {
             marginRight: "5%"
           }}>
           <Feather name="arrow-left" size={24} color="#1877F2" onPress={() => navigation.navigate('Home')} />
-          <Text style={styles.heading}>Settings</Text>
+          <Text style={styles.heading}>Notifications</Text>
           <Menu
             visible={visible}
             style={{ color: "blue" }}
             onDismiss={closeMenu}
             anchor={<Fontisto name="more-v-a" onPress={openMenu} size={34} color="#1877F2" />
             }>
-            <Menu.Item onPress={() => { setVisible(false) }} title="Office" />
+            <Menu.Item onPress={() => {navigation.navigate("Camerasceen2"),setVisible(false)}} title="Office" />
             <Divider />
             <Menu.Item onPress={() => { setVisible(false) }} title="House" />
             <Divider />
@@ -78,7 +77,7 @@ export default function Setting(raza) {
             <View style={styles.optioncontainer}>
               <View style={styles.align}>
                 <Feather name="bell" size={24} color="black" />
-                <Text style={styles.setingoption} onPress={() => navigation.navigate('Notification')}>Settings</Text>
+                <Text style={styles.setingoption} onPress={() => navigation.navigate('Notification')}>Notifications</Text>
               </View>
 
               <Switch
@@ -163,7 +162,7 @@ const styles = StyleSheet.create({
     flex: 9,
     // padding: 25,
   },
-  
+
   bodyconatiner: {
     display: "flex",
     flexDirection: "column",
@@ -180,7 +179,7 @@ const styles = StyleSheet.create({
     elevation: 7,
     shadowColor: 'gray',
     padding: 20,
-    margin:20
+    margin: 20
   },
   align: {
     display: "flex",

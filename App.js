@@ -11,20 +11,24 @@ import Statusscreen from './src/Component/Statusscreen';
 import VideoScreen from './src/Component/Video';
 import Setting from './src/Component/Setting';
 import Domi from './src/Component/domi';
-import Camerascreen from './src/Component/Camerascreen';
+import Camerascreen from './src/Component/GridScreen/Camerascreen';
 import VideoPlayer from './src/Component/VideoPlayer';
 import Devicescreen from './src/Component/Devicescreen';
 import AllCamerasScreen from './src/Component/AllCamerasScreen';
 import Livingroom from './src/Component/Livingroom';
-import Camerascreen1 from './src/Component/Camerascreen1';
-import Camerascreen3 from './src/Component/Camerascreen3';
+// import Camerascreen1 from './src/Component/GridScreen/Camerascreen1';
+// import Camerascreen3 from './src/Component/Camerascreen3';
 
 // https://oblador.github.io/react-native-vector-icons/
 
-const App = () => {
+const App = ({navigation, route}) => {
+
+
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
+  let language = route;
+  console.log(language,navigation,"language");
   return (
     <NavigationContainer options={{headerShown: false}}>
       {/* <Camerascreen /> */}

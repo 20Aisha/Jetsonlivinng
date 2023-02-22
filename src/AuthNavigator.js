@@ -1,14 +1,21 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import Signup from './Component/Signup';
 import Homescreen from './Component/Homescreen';
 import Devicescreen from './Component/Devicescreen';
 import Gridscreen from './Component/Gridscreen';
-import Camerascreen from './Component/Camerascreen';
-import Camerascreen1 from './Component/Camerascreen1';
-import Camerasceen2 from './Component/Camerasceen2';
-import Camerascreen3 from './Component/Camerascreen3';
+
+import Camerascreen from './Component/GridScreen/Camerascreen';
+import Camerascreen1 from './Component/GridScreen/Camerascreen1';
+import Camerasceen2 from './Component/GridScreen/Camerasceen2';
+import Camerascreen3 from './Component/GridScreen/Camerascreen3';
+import Camerascreen4 from './Component/GridScreen/Camerascreen4';
+import Camerascreen5 from './Component/GridScreen/Camerascreen5';
+import Camerascreen6 from './Component/GridScreen/Camerascreen6';
+import Camerascreen7 from './Component/GridScreen/Camerascreen7';
+import Camerascreen8 from './Component/GridScreen/Camerascreen8';
+import Camerascreenv1 from './Component/GridScreen/Camerascreenv1';
+
 import Livingroom from './Component/Livingroom';
 import Recording from './Component/Recording';
 import Notification from './Component/Notification';
@@ -26,9 +33,7 @@ import AllCamerasScreen from './Component/AllCamerasScreen';
 
 const Stack = createNativeStackNavigator();
 
-const AuthNavigator = (raza) => (
-
-  
+const AuthNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen
       name="StartScreen"
@@ -89,6 +94,48 @@ const AuthNavigator = (raza) => (
       component={Camerascreen1}
     />
     <Stack.Screen
+      name="Camerascreen4"
+      options={{
+        headerShown: false,
+      }}
+      component={Camerascreen4}
+    />
+    <Stack.Screen
+      name="Camerascreen5"
+      options={{
+        headerShown: false,
+      }}
+      component={Camerascreen5}
+    />
+    <Stack.Screen
+      name="Camerascreen6"
+      options={{
+        headerShown: false,
+      }}
+      component={Camerascreen6}
+    />
+    <Stack.Screen
+      name="Camerascreen7"
+      options={{
+        headerShown: false,
+      }}
+      component={Camerascreen7}
+    />
+    <Stack.Screen
+      name="Camerascreen8"
+      options={{
+        headerShown: false,
+      }}
+      component={Camerascreen8}
+    />
+    <Stack.Screen
+      name="Camerascreenv1"
+      options={{
+        headerShown: false,
+      }}
+      component={Camerascreenv1}
+    />
+    <Stack.Screen
       name="Livingroom"
       options={{
         headerShown: false,
@@ -139,7 +186,6 @@ const AuthNavigator = (raza) => (
       }
       component={CalenderScreen}
     />
-    
     <Stack.Screen
       name="Statusscreen"
       options={{
@@ -154,10 +200,7 @@ const AuthNavigator = (raza) => (
       }}
       component={Homescreen}
     />
-    
-    {/* 
-
-   
+    {/*
     <Stack.Screen
       name="Statusscreen"
       options={{
@@ -172,7 +215,6 @@ const AuthNavigator = (raza) => (
       }}
       component={Devicescreen}
     />
-   
    */}
   </Stack.Navigator>
 );
