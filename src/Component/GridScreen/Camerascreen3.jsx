@@ -9,25 +9,25 @@ export default function Camerascreen3() {
   return (
     <View style={styles.main}>
       <View style={styles.setdisplayofpage}>
-      <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={styles.image}>
         <ImageBackground source={laungimage} resizeMode="cover" style={styles.image}>
           <Text style={styles.imgtxt}>Front</Text>
           <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
         </ImageBackground>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={styles.image}>
         <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
           <Text style={styles.imgtxt}>Room</Text>
           <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
         </ImageBackground>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={styles.image}>
         <ImageBackground source={laung2image} resizeMode="cover" style={styles.image}>
           <Text style={styles.imgtxt}>Lounge</Text>
           <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
         </ImageBackground>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Livingroom')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Livingroom')} style={styles.image}>
         <ImageBackground source={roomimage} resizeMode="cover" style={styles.image}>
           <Text style={styles.imgtxt}>Backarea</Text>
           <View style={styles.dateandspotcontainer}><View style={styles.spot}></View><Text style={styles.datandtime}> Nov 15 09:30:31 </Text></View>
@@ -61,11 +61,10 @@ const styles = StyleSheet.create({
   image:
   {
     height: 360,
-    width: 205,
     display: 'flex',
     justifyContent: 'space-between',
-    marginBottom: 1,
-    padding: 20
+   // marginBottom: 1,
+    padding: 1
   },
   dateandspotcontainer:
   {
