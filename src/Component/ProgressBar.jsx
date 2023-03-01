@@ -4,7 +4,6 @@ import { View, Text, StyleSheet, TouchableOpacity, Share, } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-// import PlayerControls from './PlayerControls';
 // import Octicons from 'react-native-vector-icons/Octicons';
 
 const ProgressBar = props => {

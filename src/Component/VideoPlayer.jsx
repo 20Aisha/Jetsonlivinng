@@ -1,20 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Video from 'react-native-video';
 import {
   View, StyleSheet, Dimensions, TouchableOpacity, StatusBar, Share, Text, Button, SafeAreaView
 } from 'react-native';
-import PipHandler, { usePipModeListener } from 'react-native-pip-android';
-import Orientation from 'react-native-orientation-locker';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Video from 'react-native-video';
 import ProgressBar from './ProgressBar';
-import Octicons from 'react-native-vector-icons/Octicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-// import FontAwesome from 'react-native-vector-icons/MaterialIcons';
-import { Checkbox, List, MD3Colors } from 'react-native-paper';
 import ViewShot from 'react-native-view-shot';
+import Octicons from 'react-native-vector-icons/Octicons';
+import Orientation from 'react-native-orientation-locker';
 import CameraRoll from '@react-native-community/cameraroll';
-
-// import PlayerControls from './PlayerControls';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { Checkbox, List, MD3Colors } from 'react-native-paper';
+import PipHandler, { usePipModeListener } from 'react-native-pip-android';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 const windowHeight = Dimensions.get('window').width * (12 / 16);
@@ -25,6 +22,7 @@ const width = Dimensions.get('window').height;
 
 const VideoPlayer = () => {
 
+  const ref = useRef();
   const videoRef = React.createRef();
   const inPipMode = usePipModeListener();
   const [currentTime, setCurrentTime] = useState(0);
@@ -146,8 +144,6 @@ const VideoPlayer = () => {
     }
   };
 
-
-  const ref = useRef();
   const takeScreenShot = () => {
     ref.current.capture().then(uri => {
       CameraRoll.save(uri, { type: "photo", album: "QR codes" });
@@ -192,7 +188,7 @@ const VideoPlayer = () => {
 
             {showControl && (
               <View style={styles.controlOverlay}>
-                
+
 
                 <TouchableOpacity onPress={() => PipHandler.enterPipMode(300, 214)}
                   style={styles.fullscreenShare}
@@ -229,37 +225,14 @@ const VideoPlayer = () => {
                   </TouchableOpacity>
 
                   <TouchableOpacity
-                  onPress={handleFullscreen}
+                    onPress={handleFullscreen}
                   // hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                   // style={styles.fullscreenButton}
                   // style={styles.fullscreenButton}
-                >
-                  {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={35} color="gray" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="gray" />}
-                </TouchableOpacity>
+                  >
+                    {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={35} color="gray" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="gray" />}
+                  </TouchableOpacity>
                 </View>
-                {/* <TouchableOpacity
-                  onPress={() => PipHandler.enterPipMode(300, 214)}
-                  style={styles.box}>
-                  <Text>Click to Enter Pip Mode</Text>
-                </TouchableOpacity> */}
-
-                {/* <PlayerControls
-                onPlay={handlePlay}
-                onPause={handlePlayPause}
-                playing={play}
-                skipBackwards={skipBackward}
-                skipForwards={skipForward}
-              /> */}
-                {/* <Text 
-              style={styles.timeLeft} */}
-
-                {/* <TouchableOpacity style={styles.timeLeft} onPress={() => muteVideo()}>
-                <Octicons name={isMute ? "mute" : "unmute"} size={34} color="gray" />
-              </TouchableOpacity> */}
-                {/* <TouchableOpacity style={styles.LanScapLeft}    onPress={handleFullscreen}>
-              {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={34} color="gray"/> : <MaterialCommunityIcons name='fullscreen' size={34} color="gray"/>}
-              </TouchableOpacity > */}
-
 
                 <ProgressBar
                   currentTime={currentTime}
@@ -279,11 +252,9 @@ const VideoPlayer = () => {
             )}
           </>
         </TouchableOpacity>
-        {/* <Text> End Screen Shot</Text> */}
+
       </ViewShot>
 
-
-      {/* <Button title="Picture IN Picture" onPress={takePicture} /> */}
 
       <List.Section >
         <List.Item title="loerm ipsum dollar magnam"

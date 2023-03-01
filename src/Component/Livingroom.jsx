@@ -4,23 +4,17 @@ import {
   View, StyleSheet, Dimensions, TouchableOpacity, StatusBar, Share, Text, Button, Image, SafeAreaView, ImageBackground
 } from 'react-native';
 import ProgressBar from './ProgressBar';
+import ViewShot from 'react-native-view-shot';
+import alexaGrey from '../assets/alexaGrey.png'
+import { useNavigation } from '@react-navigation/native';
 import Orientation from 'react-native-orientation-locker';
 import Octicons from 'react-native-vector-icons/Octicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import PipHandler, { usePipModeListener } from 'react-native-pip-android';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-import { Checkbox, List, MD3Colors } from 'react-native-paper';
-import ViewShot from 'react-native-view-shot';
-// import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import alexaGrey from '../assets/alexaGrey.png'
-import Feather from 'react-native-vector-icons/Feather';
-import { useNavigation } from '@react-navigation/native';
 import CameraRoll from '@react-native-community/cameraroll';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-// import PlayerControls from './PlayerControls';
+import PipHandler, { usePipModeListener } from 'react-native-pip-android';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 const windowHeight = Dimensions.get('window').width * (12 / 16);
@@ -203,18 +197,12 @@ const Livingroom = () => {
                   <MaterialCommunityIcons name="picture-in-picture-bottom-right" size={34} color="gray" />
                 </TouchableOpacity > */}
 
-                <View
-                  style={styles.IconScreen}
-                >
+                <View style={styles.IconScreen}>
                   <Text style={{ color: "white", marginTop: "2%" }}><FontAwesome name="edit" size={30} color="white" />  ANSWERN THE DOOR </Text>
                   <Text style={{ color: "white", marginTop: "2%" }}><FontAwesome name="edit" size={30} color="white" /> DETER</Text>
                   <Text style={{ color: "white", marginTop: "2%" }}> <FontAwesome name="edit" size={30} color="white" /> PACKAGE IS HERE</Text>
                   <Text style={{ color: "white", marginTop: "2%" }}><FontAwesome name="edit" size={30} color="white" /> EMERGENCY</Text>
 
-
-
-
-                
                   {/* <TouchableOpacity onPress={() => onShare()}
                   // style={styles.fullscreenShare}
                   >
@@ -241,8 +229,8 @@ const Livingroom = () => {
 
                   <TouchableOpacity
                     onPress={handleFullscreen}
-                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                  style={styles.fullscreenButton}
+                    hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                    style={styles.fullscreenButton}
                   >
                     {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={35} color="gray" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="gray" />}
                   </TouchableOpacity>
@@ -269,10 +257,6 @@ const Livingroom = () => {
       </ViewShot>
 
       <View style={styles.bodyconatiner}>
-        {/* <ImageBackground
-          // source={laungimage} 
-          resizeMode="cover" style={styles.imagevertical}>
-        </ImageBackground> */}
 
 
         <View style={styles.options}>
@@ -320,39 +304,6 @@ const Livingroom = () => {
         </View>
       </View>
 
-
-      {/* <List.Section >
-        <List.Item title="loerm ipsum dollar magnam"
-          left={() => <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }} />}
-        />
-        <List.Item title="loerm ipsum dollar magnam"
-          left={() => <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }} />}
-        />
-        <List.Item title="loerm ipsum dollar magnam"
-          left={() => <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }} />}
-        />
-        <List.Item title="loerm ipsum dollar magnam"
-          left={() => <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }} />}
-        />
-      </List.Section> */}
-
-
     </View>
   );
 };
@@ -363,55 +314,55 @@ const styles = StyleSheet.create({
   },
   fullscreenContainer: {
     flex: 1,
-    // backgroundColor: '#ebebeb',
-    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     zIndex: 5,
+    position: 'absolute',
+    // backgroundColor: '#ebebeb',
   },
   video: {
-    height: windowHeight,
     width: windowWidth,
-    // backgroundColor: 'skyblue',
+    height: windowHeight,
     // color: "red",
+    // backgroundColor: 'skyblue',
   },
   fullscreenVideo: {
     flex: 1,
-    height: height,
+    color: "red",
     width: width,
+    height: height,
     // backgroundColor: 'skyblue',
-    color: "red"
   },
   text: {
-    marginTop: 30,
-    marginHorizontal: 20,
     fontSize: 15,
+    marginTop: 30,
     textAlign: 'justify',
+    marginHorizontal: 20,
   },
+  
   fullscreenButton: {
     flex: 1,
-    // flexDirection: 'row',
+    marginTop: 30,
+    marginLeft: 10,
+    paddingRight: 10,
     alignSelf: 'flex-start',
     alignItems: 'flex-start',
-    paddingRight: 10,
-    marginTop: 30,
-    marginLeft:10,
+    justifyContent: "space-evenly"
     // margin:10,
     // padding:10,
-    justifyContent:"space-evenly"
+    // flexDirection: 'row',
     // backgroundColor:"red"
   },
   IconScreen: {
     flex: 1,
-    flexDirection: 'column',
-    alignSelf: 'flex-start',
     alignItems: 'stretch',
+    alignSelf: 'flex-start',
+    flexDirection: 'column',
     paddingRight: 10,
     // marginTop: 30,
     // margin:10,
     // padding:10,
-
     // justifyContent:"space-between",
     // flexWrap:"wrap-reverse"
     // backgroundColor:"red"
@@ -419,67 +370,67 @@ const styles = StyleSheet.create({
   textcolor: {
     color: "green"
   },
+
   fullscreenShare: {
     // flex: 1,
-    flexDirection: 'row',
-    alignSelf: 'flex-end',
-    alignItems: 'center',
     paddingRight: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-end',
     // backgroundColor:"red"
   },
   timeLeft: {
     // flex: 1,
-    fontSize: 16,
-    color: '#FFFFFF',
-    paddingLeft: 10,
-    bottom: -93,
     zIndex: 1,
-    left: "66%"
+    left: "66%",
+    bottom: -93,
+    fontSize: 16,
+    paddingLeft: 10,
+    color: '#FFFFFF',
     // justifyContent:"flex-start",
   },
   LanScapLeft: {
     // flex: 1,
-    fontSize: 16,
-    color: '#FFFFFF',
-    paddingLeft: 10,
-    bottom: -58,
     zIndex: 1,
-    left: "81%"
+    left: "81%",
+    bottom: -58,
+    fontSize: 16,
+    paddingLeft: 10,
+    color: '#FFFFFF',
     // justifyContent:"flex-start",
   },
   controlOverlay: {
-    position: 'absolute',
     top: 0,
-    bottom: 0,
     left: 0,
     right: 0,
+    bottom: 0,
+    position: 'absolute',
     backgroundColor: '#000000c4',
     justifyContent: 'space-between',
   },
 
   bodyconatiner: {
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
+    flexDirection: "column",
     justifyContent: "space-evenly",
     // flex: 8,
-
   },
 
   options: {
     // height: "20%",
-    width: "80%",
+    padding: 10,
+    elevation: 7,
     borderRadius: 50,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    backgroundColor: "white",
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
+    width: "80%",
+    display: "flex",
     shadowColor: "#000",
-    elevation: 7,
-    padding: 10,
+    alignItems: "center",
+    flexDirection: "row",
+    backgroundColor: "white",
+    justifyContent: "space-evenly",
     // margin: 10, 
   },
   moreoptions: {
@@ -494,14 +445,14 @@ const styles = StyleSheet.create({
   historybox: {
     // height: "8%",
     // width: "60%",
-    borderRadius: 50,
     // display: "flex",
     // flexDirection: "row",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    borderWidth: 1,
-    bordercolor: "#1877F2",
     padding: 8,
+    borderWidth: 1,
+    borderRadius: 50,
+    alignItems: "center",
+    bordercolor: "#1877F2",
+    justifyContent: "space-evenly",
   },
   para: {
     color: "gray",

@@ -16,6 +16,8 @@ import Devicescreen from './src/Component/Devicescreen';
 import AllCamerasScreen from './src/Component/AllCamerasScreen';
 import Livingroom from './src/Component/Livingroom';
 import Officescreen from './src/Component/Officescreen';
+// import Shahzar from './src/Component/shahzar';
+
 // import Camerascreen1 from './src/Component/GridScreen/Camerascreen1';
 // import Camerascreen3 from './src/Component/Camerascreen3';
 
@@ -32,6 +34,7 @@ const App = ({navigation, route}) => {
       {/* <Camerascreen /> */}
       {/* <CalenderScreen /> */}
       {/* <VideoPlayer /> */}
+      {/* <Shahzar /> */}
       <AuthNavigator />
 
       {/* <VerticalScreen6/> */}

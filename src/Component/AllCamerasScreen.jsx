@@ -1,21 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ImageBackground, StyleSheet, Text, View, Share, Dimensions, TouchableOpacity, FlatList, SafeAreaView, StatusBar, ScrollView } from 'react-native';
 import Video from 'react-native-video';
+import ProgressBar from './ProgressBar';
+import ViewShot from 'react-native-view-shot';
 import { useNavigation } from '@react-navigation/native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-import ViewShot from 'react-native-view-shot';
-import CameraRoll from '@react-native-community/cameraroll';
-
-
-import PipHandler, { usePipModeListener } from 'react-native-pip-android';
 import Orientation from 'react-native-orientation-locker';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import ProgressBar from './ProgressBar';
 import Octicons from 'react-native-vector-icons/Octicons';
+import CameraRoll from '@react-native-community/cameraroll';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import PipHandler, { usePipModeListener } from 'react-native-pip-android';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// import videoplayback from './videoplayback.mp4'
 
 const windowHeight = Dimensions.get('window').width * (12 / 22);
 const windowWidth = Dimensions.get('window').width;
@@ -29,8 +25,8 @@ export default function AllCamerasScreen() {
 
     const [status, setStatus] = React.useState({});
 
+    const ref = useRef();
     const navigation = useNavigation();
-
     const videoRef = React.createRef();
     const inPipMode = usePipModeListener();
     const [currentTime, setCurrentTime] = useState(0);
@@ -58,7 +54,6 @@ export default function AllCamerasScreen() {
         );
     }
 
-    // console.log(isMute, "isMute")
     const muteVideo = () => setMute(!isMute);
 
     const handleOrientation = orientation => {
@@ -152,16 +147,12 @@ export default function AllCamerasScreen() {
         }
     };
 
-
-    const ref = useRef();
     const takeScreenShot = () => {
         ref.current.capture().then(uri => {
             CameraRoll.save(uri, { type: "photo", album: "QR codes" });
             alert("Took screenshot");
         });
     };
-
-
 
 
     let data = [
@@ -178,26 +169,24 @@ export default function AllCamerasScreen() {
             time: "2"
         },
         {
-            id:3,
-            name:"https://rr2---sn-npoeenly.googlevideo.com/videoplayback?expire=1676429476&ei=Q_TrY8vDO5KhtQeTm6vACQ&ip=64.145.76.74&id=o-APsLrg5ZE8rmKIVS6Gl0tiQ6CqNKfCOgnLHEtNKZM6zq&itag=18&source=youtube&requiressl=yes&spc=H3gIhjJTF9cbfWDm-vXeGo5BfsfpKoY&vprv=1&mime=video%2Fmp4&ns=CSEzMo4RKTyuNAnUNePJxBUL&cnr=14&ratebypass=yes&dur=119.652&lmt=1664575038351521&fexp=24007246&c=WEB&txp=5538434&n=NuvJz1WVDVALhA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAItMS4aFyHPiBjHGlIY1m_Se-EDi-IyVbKZCanF7bOo4AiEAkltXYET2DFUFzDho3WVZQtt9ETHh1ZK7jZXSkB4ds9E%3D&redirect_counter=1&cm2rm=sn-a5me7y7s&req_id=c89c80940248a3ee&cms_redirect=yes&cmsv=e&mh=Ea&mip=119.73.96.2&mm=34&mn=sn-npoeenly&ms=ltu&mt=1676407482&mv=m&mvi=2&pl=24&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAO4qm7zUMwdwWifnIU47rEZ591uvN-OOGTz3ki3jX45nAiAsJfDofN7j4vinxmAdROBzQGwOJzyAqG8T4Ks3DunXyg%3D%3D",
-            name_1:"Clemson",
-            time:"3"
+            id: 3,
+            name: "https://rr2---sn-npoeenly.googlevideo.com/videoplayback?expire=1676429476&ei=Q_TrY8vDO5KhtQeTm6vACQ&ip=64.145.76.74&id=o-APsLrg5ZE8rmKIVS6Gl0tiQ6CqNKfCOgnLHEtNKZM6zq&itag=18&source=youtube&requiressl=yes&spc=H3gIhjJTF9cbfWDm-vXeGo5BfsfpKoY&vprv=1&mime=video%2Fmp4&ns=CSEzMo4RKTyuNAnUNePJxBUL&cnr=14&ratebypass=yes&dur=119.652&lmt=1664575038351521&fexp=24007246&c=WEB&txp=5538434&n=NuvJz1WVDVALhA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAItMS4aFyHPiBjHGlIY1m_Se-EDi-IyVbKZCanF7bOo4AiEAkltXYET2DFUFzDho3WVZQtt9ETHh1ZK7jZXSkB4ds9E%3D&redirect_counter=1&cm2rm=sn-a5me7y7s&req_id=c89c80940248a3ee&cms_redirect=yes&cmsv=e&mh=Ea&mip=119.73.96.2&mm=34&mn=sn-npoeenly&ms=ltu&mt=1676407482&mv=m&mvi=2&pl=24&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAO4qm7zUMwdwWifnIU47rEZ591uvN-OOGTz3ki3jX45nAiAsJfDofN7j4vinxmAdROBzQGwOJzyAqG8T4Ks3DunXyg%3D%3D",
+            name_1: "Clemson",
+            time: "3"
         },
         {
-            id:4,
-            name:"https://rr2---sn-npoeenly.googlevideo.com/videoplayback?expire=1676429476&ei=Q_TrY8vDO5KhtQeTm6vACQ&ip=64.145.76.74&id=o-APsLrg5ZE8rmKIVS6Gl0tiQ6CqNKfCOgnLHEtNKZM6zq&itag=18&source=youtube&requiressl=yes&spc=H3gIhjJTF9cbfWDm-vXeGo5BfsfpKoY&vprv=1&mime=video%2Fmp4&ns=CSEzMo4RKTyuNAnUNePJxBUL&cnr=14&ratebypass=yes&dur=119.652&lmt=1664575038351521&fexp=24007246&c=WEB&txp=5538434&n=NuvJz1WVDVALhA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAItMS4aFyHPiBjHGlIY1m_Se-EDi-IyVbKZCanF7bOo4AiEAkltXYET2DFUFzDho3WVZQtt9ETHh1ZK7jZXSkB4ds9E%3D&redirect_counter=1&cm2rm=sn-a5me7y7s&req_id=c89c80940248a3ee&cms_redirect=yes&cmsv=e&mh=Ea&mip=119.73.96.2&mm=34&mn=sn-npoeenly&ms=ltu&mt=1676407482&mv=m&mvi=2&pl=24&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAO4qm7zUMwdwWifnIU47rEZ591uvN-OOGTz3ki3jX45nAiAsJfDofN7j4vinxmAdROBzQGwOJzyAqG8T4Ks3DunXyg%3D%3D",
-            name_1:"Clemson Sc",
-            time:"4"
+            id: 4,
+            name: "https://rr2---sn-npoeenly.googlevideo.com/videoplayback?expire=1676429476&ei=Q_TrY8vDO5KhtQeTm6vACQ&ip=64.145.76.74&id=o-APsLrg5ZE8rmKIVS6Gl0tiQ6CqNKfCOgnLHEtNKZM6zq&itag=18&source=youtube&requiressl=yes&spc=H3gIhjJTF9cbfWDm-vXeGo5BfsfpKoY&vprv=1&mime=video%2Fmp4&ns=CSEzMo4RKTyuNAnUNePJxBUL&cnr=14&ratebypass=yes&dur=119.652&lmt=1664575038351521&fexp=24007246&c=WEB&txp=5538434&n=NuvJz1WVDVALhA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAItMS4aFyHPiBjHGlIY1m_Se-EDi-IyVbKZCanF7bOo4AiEAkltXYET2DFUFzDho3WVZQtt9ETHh1ZK7jZXSkB4ds9E%3D&redirect_counter=1&cm2rm=sn-a5me7y7s&req_id=c89c80940248a3ee&cms_redirect=yes&cmsv=e&mh=Ea&mip=119.73.96.2&mm=34&mn=sn-npoeenly&ms=ltu&mt=1676407482&mv=m&mvi=2&pl=24&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAO4qm7zUMwdwWifnIU47rEZ591uvN-OOGTz3ki3jX45nAiAsJfDofN7j4vinxmAdROBzQGwOJzyAqG8T4Ks3DunXyg%3D%3D",
+            name_1: "Clemson Sc",
+            time: "4"
         },
     ]
 
 
     return (
         <View style={styles.container}>
-            {/* <ScrollView> */}
 
-            <View style={styles.miniHeader}
-            >
+            <View style={styles.miniHeader}>
                 <Text style={styles.heading} >Cameras</Text>
                 <View style={styles.btncontainer}>
                     <Text style={styles.btnHeader} onPress={() => navigation.navigate('Gridscreen')}>Grid View</Text>
@@ -205,13 +194,12 @@ export default function AllCamerasScreen() {
                 </View>
             </View>
 
-            <View 
+            <View
             // style={styles.main}
             >
-                <View 
+                <View
                 // style={styles.setdisplayofpage}
                 >
-
                     <FlatList data={data}
                         keyExtractor={(item, index) => `${index}`}
                         renderItem={({ item, index }) => {
@@ -228,7 +216,6 @@ export default function AllCamerasScreen() {
                                                 format: 'jpg', // image extention
                                                 quality: 0.9 // image quality
                                             }}>
-                                            {/* <Text> Start Screen Shot</Text> */}
 
                                             <TouchableOpacity onPress={handleControls}>
                                                 <>
@@ -244,22 +231,17 @@ export default function AllCamerasScreen() {
                                                         paused={!play}
                                                         muted={isMute}
                                                         pictureInPicture={true}
-                                                        
                                                     />
 
                                                     {showControl && (
                                                         <View style={styles.controlOverlay}>
 
 
-                                                            <TouchableOpacity onPress={() => PipHandler.enterPipMode(300, 214)}
-                                                                style={styles.fullscreenShare}
-                                                            >
+                                                            <TouchableOpacity onPress={() => PipHandler.enterPipMode(300, 214)} style={styles.fullscreenShare}>
                                                                 <MaterialCommunityIcons name="picture-in-picture-bottom-right" size={34} color="gray" />
                                                             </TouchableOpacity >
 
-                                                            <View
-                                                                style={styles.IconScreen}
-                                                            >
+                                                            <View style={styles.IconScreen}>
 
                                                                 <TouchableOpacity onPress={() => onShare()}
                                                                 // style={styles.fullscreenShare}
@@ -309,30 +291,16 @@ export default function AllCamerasScreen() {
                                                     )}
                                                 </>
                                             </TouchableOpacity>
-                                            {/* <Text> End Screen Shot</Text> */}
                                         </ViewShot>
 
-
-
-
                                     </View>
-                                    {/* </View> */}
                                 </ScrollView>
                             )
                         }}
                     />
 
-
-
-
-
-
-
                 </View>
-
-
             </View>
-            {/* </ScrollView> */}
         </View>
     )
 }
@@ -449,7 +417,7 @@ const styles = StyleSheet.create({
         right: 0,
         zIndex: 5,
 
-        
+
     },
     video: {
         height: windowHeight,
@@ -523,7 +491,7 @@ const styles = StyleSheet.create({
         // justifyContent:"flex-start",
     },
     controlOverlay: {
-        
+
         position: 'absolute',
         top: 0,
         bottom: 0,

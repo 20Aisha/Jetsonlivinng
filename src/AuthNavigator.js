@@ -37,14 +37,23 @@ import Footer from './Component/Footer';
 import VideoPlayer from './Component/VideoPlayer';
 import AllCamerasScreen from './Component/AllCamerasScreen';
 import Officescreen from './Component/Officescreen';
+// import shahzar from './Component/shahzar';
+
+
 
 // import Navbar from "../Navbar";
 // import Footer from "../Footer";
 
 const Stack = createNativeStackNavigator();
 
+
 const AuthNavigator = () => (
   <Stack.Navigator>
+    {/* <Stack.Screen
+      name="shahzar"
+      options={{headerShown: false}}
+      component={shahzar}
+    /> */}
     <Stack.Screen
       name="StartScreen"
       options={{headerShown: false}}
