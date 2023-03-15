@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View, Image, TextInput, Button, ImageBackground, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, Button, ImageBackground, ScrollView, Dimensions } from 'react-native'
 import React from 'react'
 import logo from '../assets/JetsonLiving.png';
 import siginBack from '../assets/siginBack.png'
 import { useNavigation } from '@react-navigation/native';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 
 export default function Signup() {
@@ -91,14 +94,15 @@ const styles = StyleSheet.create({
     flex: 1,
     display: "flex",
     justifyContent: 'center',
-    paddingTop: "10%"
+    // paddingTop: "10%"
   },
   main: {
-    display: "flex",
-    flexDirection: "column",
-    flex: 1,
+    // display: "flex",
+    // flexDirection: "column",
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
+
   },
   logincontainer: {
     // width: "100%",
@@ -108,7 +112,8 @@ const styles = StyleSheet.create({
     elevation: 10,
     shadowColor: 'skyblue',
     borderRadius: 15,
-
+    width: windowWidth / 1.1,
+    height: windowHeight / 1.4
   },
   tinyLogo: {
     // width: "100%",
@@ -123,15 +128,17 @@ const styles = StyleSheet.create({
     // marginLeft:10
 
   },
-  logo:{
-    width: 400,
-    minWidth: '20%',
-    height: 200,
+  logo: {
+    // width: 400,
+    // minWidth: windowWidth /2,
+    // height: 200,
+    width: windowWidth / 1.1,
+    height: windowHeight / 4
   },
   loginform: {
     width: "100%",
     height: "100%",
-    marginTop: 30,
+    // marginTop: 30,
 
   },
 
@@ -148,9 +155,10 @@ const styles = StyleSheet.create({
 
   signbtn: {
     width: "60%",
-    height: 40,
-    marginTop: 15,
+    // height: windowHeight - 2,
+    marginTop: "10%",
     alignSelf: "center",
+    // alignItems: "center"
     // borderRadius: 150,
 
   },
@@ -161,5 +169,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'skyBlue',
     shadowColor: 'gray',
+    // height: windowHeight / 2
   },
 })

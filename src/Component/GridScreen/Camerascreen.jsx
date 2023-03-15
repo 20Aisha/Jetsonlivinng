@@ -1,9 +1,12 @@
-import { ImageBackground, StyleSheet,Image, Text, View, TouchableOpacity } from 'react-native';
+import { ImageBackground, StyleSheet, Image, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import laungimage from '../../assets/lounge.jpg';
 import laung2image from '../../assets/lounge2.jpg';
 import roomimage from '../../assets/room.jpg';
 // import Footer from './Footer';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default function Camerascreen() {
 
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
   },
   image:
   {
-    height: 240,
+    height: windowHeight / 3,
     padding: 30,
     display: 'flex',
     justifyContent: 'space-between',
@@ -72,10 +75,10 @@ const styles = StyleSheet.create({
     // margin: 5,
     height: 50,
     width: 50,
-    alignItems:"flex-end",
+    alignItems: "flex-end",
     // resizeMode: 'stretch',
-    marginTop:"-10%",
-    left:"88%"
+    marginTop: "-10%",
+    left: "88%"
   },
   spot:
   {

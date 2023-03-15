@@ -340,7 +340,7 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
     marginHorizontal: 20,
   },
-  
+
   fullscreenButton: {
     flex: 1,
     marginTop: 30,
@@ -435,11 +435,13 @@ const styles = StyleSheet.create({
   },
   moreoptions: {
     height: "20%",
-    width: "100%",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: "center",
+    width: windowWidth - 4,
+    // backgroundColor: "yellow",
+
 
   },
   historybox: {

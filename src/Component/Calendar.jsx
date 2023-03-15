@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
 import CalendarPicker from 'react-native-calendar-picker';
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Text, Dimensions } from 'react-native';
 
+
+const height = Dimensions.get('window').width;
+const width = Dimensions.get('window').height;
 
 
 export default function CalenderScreen() {
@@ -38,8 +41,10 @@ export default function CalenderScreen() {
             borderRadius: 10,
             marginVertical: 10,
             marginHorizontal: 20,
-            backgroundColor: '#fff',
-            backgroundColor: "white",
+            // backgroundColor: '#fff',
+            backgroundColor: "#F9F9F9",
+            // width: width / 3,
+            height: height / 2.5
 
             // paddingHorizontal: 10,
             // flexDirection: 'row',
@@ -53,11 +58,13 @@ export default function CalenderScreen() {
         },
         textStyle: {
             marginTop: 10,
+            color: "white",
         },
         titleStyle: {
             textAlign: 'center',
             fontSize: 20,
             margin: 20,
+
         },
         btncontainer: {
             display: "flex",
@@ -80,11 +87,10 @@ export default function CalenderScreen() {
             color: 'white',
             minWidth: '21%',
             display: "flex",
-            color: 'skyBlue',
             marginLeft: 'auto',
             alignSelf: 'center',
-            shadowColor: 'gray',
-            alignItems: "center",
+            shadowColor: 'skyblue',
+            // alignItems: "center",
             justifyContent: 'center',
             backgroundColor: "#22709E",
         },
@@ -96,14 +102,14 @@ export default function CalenderScreen() {
             marginRight: 5,
             borderRadius: 10,
             padding: "2%",
-            display: "flex",
             color: 'white',
-            color: 'skyBlue',
-            marginLeft: 'auto',
-            shadowColor: 'gray',
-            alignSelf: 'center',
-            alignItems: "center",
-            justifyContent: 'center',
+            display: "flex",
+            // color: 'skyBlue',
+            // marginLeft: 'auto',
+            // shadowColor: 'gray',
+            // alignSelf: 'center',
+            // alignItems: "center",
+            // justifyContent: 'center',
             backgroundColor: "#22709E",
         }
     });
@@ -112,6 +118,7 @@ export default function CalenderScreen() {
 
             <View>
                 <Text style={styles.titleStyle}>Calendar</Text>
+
                 <CalendarPicker
                     startFromMonday={true}
                     allowRangeSelection={true}
@@ -124,10 +131,13 @@ export default function CalenderScreen() {
                     nextTitle="Next"
                     scaleFactor={375}
                     onDateChange={onDateChange}
-                    selectedDayColor="#66ff33"
-                    todayBackgroundColor="skyblue"
-                    selectedDayTextColor="#000000"
+                    // selectedDayColor="#66ff33"
+                    // todayBackgroundColor="skyblue"
+                    // selectedDayTextColor="#000000"
 
+                    todayBackgroundColor="white"
+                    selectedDayColor="#0F4B63"
+                    selectedDayTextColor="black"
                     textStyle={{
                         fontFamily: 'Cochin',
                         color: '#000000',
@@ -136,7 +146,7 @@ export default function CalenderScreen() {
                 <View style={styles.btncontainer}>
                     <View>
                         <Text style={styles.btnHeader}>
-                            <Text> Selected Start Date :{selectedStartDate ? Moment(Sdt).format('MMMM Do, YYYY') : ''} </Text>
+                            <Text style={styles.textStyle}> Selected Start Date :{selectedStartDate ? Moment(Sdt).format('MMMM Do, YYYY') : ''} </Text>
                         </Text>
                         <Text style={styles.btnHeader} >
                             <Text style={styles.textStyle}>  Selected End Date : {selectedEndDate ? Moment(Edt).format('MMMM Do, YYYY') : ''}</Text>

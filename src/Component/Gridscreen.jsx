@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Button, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Group111 from '../assets/Icons/Group111.png';
 import Group110 from '../assets/Icons/Group110.png';
@@ -19,6 +19,8 @@ import Group102 from '../assets/Icons/Group102.png';
 import Group103 from '../assets/Icons/Group103.png';
 
 // import Footer from './Footer';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default function Gridscreen() {
     const navigation = useNavigation();
@@ -103,18 +105,18 @@ export default function Gridscreen() {
 }
 const styles = StyleSheet.create({
     main: {
-        paddingTop: 20,
-        paddingBottom: 120,
-        paddingLeft: 30,
-        paddingRight: 30,
+        // paddingTop: 20,
+        // paddingBottom: 120,
+        // paddingLeft: 30,
+        // paddingRight: 30,
         display: "flex",
         flexDirection: "column",
         flex: 1,
         justifyContent: "center",
     },
     viewcontainer: {
-        width: "90%",
-        height: "90%",
+        // width: "90%",
+        // height: "90%",
         backgroundColor: "white",
         padding: 10,
         elevation: 18,
@@ -123,7 +125,10 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         left: "5%",
-        right: "10%"
+        right: "10%",
+        width: windowWidth / 1.2,
+        height: windowHeight / 1.3,
+        // backgroundColor: "red"
     },
     views: {
         width: "50%",
