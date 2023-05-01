@@ -12,14 +12,30 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Checkbox, List, MD3Colors } from 'react-native-paper';
 import PipHandler, { usePipModeListener } from 'react-native-pip-android';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// import { Peer } from "peerjs";
+import { startRecording, stopRecording } from 'react-native-record-screen';
+import { usePreventScreenCapture } from 'expo-screen-capture';
+// import ScreenRecorder from 'react-native-record-screen';
+// import RecordScreen, { RecordingStartResponse } from 'react-native-record-screen';
+// import RNRecordScreen from 'react-native-record-screen';
+// import { RecordScreen, stopRecording } from 'react-native-record-screen';
+import {
+  CaptureProtection,
+  CaptureProtectionModuleStatus,
+} from 'react-native-capture-protection';
+
+import RecordScreen from 'react-native-record-screen';
+
+
 
 const windowHeight = Dimensions.get('window').width * (12 / 16);
 const windowWidth = Dimensions.get('window').width;
+// const screenRecorder = new RecordingStartResponse();
 
 const height = Dimensions.get('window').width;
 const width = Dimensions.get('window').height;
 
-const VideoPlayer = () => {
+const SRNV = () => {
 
   const ref = useRef();
   const videoRef = React.createRef();
@@ -32,7 +48,26 @@ const VideoPlayer = () => {
   const [isMute, setMute] = useState(false);
   const [checked, setChecked] = useState(false);
   let Url = 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4';
+  // const peer = new Peer("https://burickg.ddns.net:8846/live/7d244d7fe465802738fa38efc849c144-1.m3u8");
 
+  // const conn = peer.connect("https://burickg.ddns.net:8846/live/7d244d7fe465802738fa38efc849c144-1.m3u8");
+  // conn.on("open", () => {
+  //   conn.send("hi!");
+  // });
+  // console.log(peer, "peerpeerpeer");
+  // console.log(conn, "connconnconnconn");
+//   useEffect(() => {
+//     CaptureProtection.addEventListener(({ status, isPrevent }) => {
+//       console.log(
+//         'CaptureProtection => ',
+//         CaptureProtectionModuleStatus[status],
+//         isPrevent
+//       );
+//     });
+//   }, []);
+
+
+  
   useEffect(() => {
     Orientation.addOrientationListener(handleOrientation);
     return () => {
@@ -152,6 +187,114 @@ const VideoPlayer = () => {
 
 
 
+  // const handleRecord = () => {
+  const handleRecord = async () => {
+    try {
+      const options = {
+        fileName: 'file://var/mobile/Containers/Data/Application/{ApplicationUUID}/Documents/Replays/my_file_name.mp4',
+        // fileName: '../node_modules/react-native/android/my_file_name.mp4',
+        app: 'com.myapp',
+      };
+      const result = await RecordScreen.startRecording(options);
+      // const result = await CaptureProtection.preventScreenRecord();;
+      console.log('Recording started:', result);
+      const allowScreenRecord = await CaptureProtection.preventScreenRecord(true);
+      console.log('Recording started:', allowScreenRecord);
+    } catch (error) {
+      console.log('Error recording:', error);
+    };
+    // RecordScreen.startRecording({
+    //   fileName: 'myrecording.mp4',
+    //   microphoneEnabled: true,
+    //   videoBitrate: 4000000,
+    //   videoResolution: '720',
+    // });
+
+    const preventStatus = await CaptureProtection.getPreventStatus();
+    // CaptureProtection.allowScreenRecord()
+    if (preventStatus?.record) {
+      // screen record is prevent
+      console.log("Start===>", preventStatus);
+    }
+    if (preventStatus?.screenshot) {
+      console.log("Start===>", preventStatus);
+      // console.log("Start===>");
+      // screenshot is prevent
+    }
+    console.log("Start===>");
+
+    CaptureProtection.allowScreenRecord({
+      crop: {
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height - 180,
+        x: 0,
+        y: 80,
+        fps: 24,
+      },
+    }).then((res) => console.log(res, "response")).catch((error) => console.error(error, "error"))
+
+    const isScreenRecord = await CaptureProtection.isScreenRecording();
+
+    if (isScreenRecord) {
+      // user already recoding
+
+      console.log(isScreenRecord,"isScreenRecord");
+    }
+    
+
+    CaptureProtection.addEventListener(({ status, isPrevent }) => {
+        console.log(
+          'CaptureProtection => ',
+          CaptureProtectionModuleStatus[status],
+          isPrevent
+        );
+      });
+  
+    // CaptureProtection.allowScreenRecord(({ status, isPrevent }) => {
+    //   if (
+    //     status == CaptureProtectionModuleStatus.RECORD_DETECTED_START &&
+    //     isPrevent?.record
+    //   ) {
+    //     Alert.alert('Warning', 'record detected');
+    //     console.log(isPrevent, "raza");
+    //   }
+    // })
+
+    // await CaptureProtection.preventScreenRecord();
+    // await CaptureProtection.allowScreenRecord();
+    // RecordScreen.startRecording("gallery")
+  }
+
+  async function StopScreenRecord() {
+    //   // recording stop
+
+    // const res = RecordScreen.stopRecording().then((res) => console.log(res, "<=====res")).catch((error) =>
+    //   console.warn(error)
+    // );
+    // if (res) {
+    //   const url = res;
+    //   console.log(url, "video response");
+    // }
+    // RecordScreen.stopRecording().then((filePath) => {
+    //   console.log(`Recording saved to ${filePath}`);
+    // }).catch((error) => {
+    //   console.error(error);
+    // });
+    // console.log("End===>");
+    CaptureProtection.preventScreenRecord().then((res) => console.log(res, "<=====res")).catch((error) =>
+      console.warn(error)
+    );
+    // const res = await RecordScreen.stopRecording().catch((error) =>
+    //   console.warn(error)
+    // );
+
+    // if (res) {
+    //   const url = res.result.outputURL;
+    //   console.log(url);
+    // }
+    // console.log(res);
+  }
+  // const isRecording = screenRecorder.isRecording();
 
   return (
     <View style={fullscreen ? styles.fullscreenContainer : styles.container}>
@@ -194,15 +337,11 @@ const VideoPlayer = () => {
                   style={styles.IconScreen}
                 >
 
-                  <TouchableOpacity onPress={() => onShare()}
-                  // style={styles.fullscreenShare}
-                  >
+                  <TouchableOpacity onPress={() => onShare()} >
                     <FontAwesome name="share-square-o" size={34} color="gray" />
                   </TouchableOpacity >
 
-                  <TouchableOpacity onPress={takeScreenShot}
-                  // style={styles.fullscreenShare}
-                  >
+                  <TouchableOpacity onPress={takeScreenShot}>
                     <MaterialCommunityIcons name="monitor-screenshot" size={34} color="gray" />
                   </TouchableOpacity >
 
@@ -213,21 +352,16 @@ const VideoPlayer = () => {
                   </TouchableOpacity > */}
 
                   <TouchableOpacity
-                    // style={styles.timeLeft} 
                     onPress={() => muteVideo()}>
                     <Octicons name={isMute ? "mute" : "unmute"} size={34} color="gray" />
                   </TouchableOpacity>
 
                   <TouchableOpacity
                     onPress={handleFullscreen}
-                  // hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                  // style={styles.fullscreenButton}
-                  // style={styles.fullscreenButton}
                   >
                     {fullscreen ? <MaterialCommunityIcons name='fullscreen-exit' size={35} color="gray" /> : <MaterialCommunityIcons name='fullscreen' size={34} color="gray" />}
                   </TouchableOpacity>
                 </View>
-
                 <ProgressBar
                   currentTime={currentTime}
                   duration={duration > 0 ? duration : 0}
@@ -251,36 +385,59 @@ const VideoPlayer = () => {
 
 
       <List.Section >
-        <List.Item title="loerm ipsum dollar magnam"
-          left={() => <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }} />}
+      
+        <Button
+          onPress={handleRecord}
+          title="Start Learn More"
+          color="#841584"
         />
-        <List.Item title="loerm ipsum dollar magnam"
-          left={() => <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }} />}
-        />
-        <List.Item title="loerm ipsum dollar magnam"
-          left={() => <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }} />}
-        />
-        <List.Item title="loerm ipsum dollar magnam"
-          left={() => <Checkbox
-            status={checked ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setChecked(!checked);
-            }} />}
-        />
-      </List.Section>
 
+        <Button
+          onPress={StopScreenRecord}
+          title="Stop Learn More"
+          color="#841584"
+        />
+
+       <Button
+        title="set Record Protect Screen by Text"
+        onPress={() => {
+          CaptureProtection.setScreenRecordScreenWithText?.('TEST!');
+        }}
+      />
+      <Button
+        title="set Record Protect Screen by Image"
+        onPress={() => {
+          CaptureProtection.setScreenRecordScreenWithImage?.(
+            require('../assets/splashScreen2.jpg')
+          );
+        }}
+      />
+      <Button
+        title="allow Record"
+        onPress={() => {
+          CaptureProtection.allowScreenRecord();
+        }}
+      />
+      <Button
+        title="prevent Record"
+        onPress={() => {
+          CaptureProtection.preventScreenRecord();
+        }}
+      />
+      <Button
+        title="allow Screenshot"
+        onPress={() => {
+          CaptureProtection.allowScreenshot();
+        }}
+      />
+      <Button
+        title="prevent Screenshot"
+        onPress={() => {
+          CaptureProtection.preventScreenshot();
+        }}
+      />
+      </List.Section>
+      {/* <Button onPress={StartScreenRecord}>Start Recording</Button> */}
 
     </View>
   );
@@ -381,4 +538,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default VideoPlayer;
+export default SRNV;
