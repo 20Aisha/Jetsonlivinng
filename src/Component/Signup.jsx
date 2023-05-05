@@ -3,6 +3,7 @@ import React from 'react'
 import logo from '../assets/JetsonLiving.png';
 import siginBack from '../assets/siginBack.png'
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -11,10 +12,24 @@ const windowHeight = Dimensions.get('window').height;
 export default function Signup() {
 
   const navigation = useNavigation();
-  const [text, onChangeText] = React.useState('Useless Text');
   const [number, onChangeNumber] = React.useState('');
-  // const image = { uri: 'https://i.pinimg.com/originals/d0/2b/5b/d02b5b51fadb746eb1b2e3017ae1a716.jpg' };
-  // const logo = { require(url'https://i.pinimg.com/originals/b1/9e/56/b19e56e0b9e23b771eb2dd1183bfe378.png') };
+  // const [text, onChangeText] = React.useState('Useless Text');
+
+  function handler() {
+    axios({
+      method: "post",
+      url: "https://licensing.sighthound.com/auth",
+      data: {
+        email: "Burickg@gmail.com",
+        password: "1seeyou2020"
+      }
+    }).then((res) => {
+      console.log(res, "response===========>")
+      // navigation.navigate('Footer')
+    }).catch((err) => {
+      console.log(err, "error===========>")
+    })
+  }
 
   console.log(number, "number");
   return (
@@ -26,7 +41,7 @@ export default function Signup() {
           <View style={styles.main}>
             <View style={styles.logincontainer}>
 
-              {/* <View style={styles.loginform}> */}
+   
               <View>
                 <View style={styles.tinyLogo}>
                   <Image
@@ -34,10 +49,6 @@ export default function Signup() {
                     source={logo}
                   />
                 </View>
-                {/* <Image
-                  style={styles.tinyLogo}
-                  source={logo}
-                /> */}
 
                 <TextInput
                   style={styles.input}
@@ -58,7 +69,7 @@ export default function Signup() {
                   onChangeText={onChangeNumber}
                   value={number}
                   placeholder="Password"
-                // keyboardType="visible-password"
+                
                 />
 
                 <Text style={styles.forget}>Forget Password?</Text>
@@ -66,7 +77,7 @@ export default function Signup() {
                   <Button title="Sign in"
                     color="#1877F2"
                     style={styles.btn}
-                    onPress={() => navigation.navigate('Footer')}
+                    onPress={handler}
                   />
                 </View>
 

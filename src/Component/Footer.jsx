@@ -17,6 +17,8 @@ import Devicescreen from './Devicescreen';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import AllCamerasScreen from './AllCamerasScreen';
 import Officescreen from './Officescreen';
+import Clips from './Clips';
+
 
 export default function Footer() {
 
@@ -46,6 +48,14 @@ export default function Footer() {
         />
 
         <Tab.Screen name='Officescreen' component={Officescreen}
+          options={{
+            tabBarLabel: '',
+            tabBarIconStyle: { display: "none" },
+            headerShown: false,
+            tabBarItemStyle: { display: "none" }
+          }}
+        />
+        <Tab.Screen name='Clips' component={Clips}
           options={{
             tabBarLabel: '',
             tabBarIconStyle: { display: "none" },

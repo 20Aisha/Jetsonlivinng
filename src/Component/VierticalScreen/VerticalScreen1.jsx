@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react';
 import { Image, ImageBackground, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import laungimage from '../../assets/lounge.jpg';
@@ -6,6 +6,7 @@ import laung2image from '../../assets/lounge2.jpg';
 import roomimage from '../../assets/room.jpg';
 import camimage from '../../assets/cameraimg.jpg';
 import addimage from '../../assets/add.png';
+
 // import Footer from '../Footer';
 
 

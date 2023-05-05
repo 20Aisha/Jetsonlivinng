@@ -37,6 +37,9 @@ import Footer from './Component/Footer';
 import VideoPlayer from './Component/VideoPlayer';
 import AllCamerasScreen from './Component/AllCamerasScreen';
 import Officescreen from './Component/Officescreen';
+import Clips from './Component/Clips';
+
+
 // import shahzar from './Component/shahzar';
 
 
@@ -281,6 +284,13 @@ const AuthNavigator = () => (
         headerShown: false,
       }}
       component={Homescreen}
+    />
+    <Stack.Screen
+      name="Clips"
+      options={{
+        headerShown: false,
+      }}
+      component={Clips}
     />
     {/*
     <Stack.Screen

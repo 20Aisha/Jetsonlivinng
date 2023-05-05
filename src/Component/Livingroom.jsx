@@ -278,7 +278,7 @@ const Livingroom = () => {
 
 
         <View style={styles.historybox}>
-          <Text style={styles.para} onPress={() => navigation.navigate('Recording')}>24 hour video recording video</Text>
+          <Text style={styles.para} onPress={() => navigation.navigate('Recording')}>24 hour recording video</Text>
         </View>
 
         <View style={styles.moreoptions}>

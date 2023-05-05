@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Alert, Modal, Pressable } from 'react-native';
 import laungimage from '../assets/lounge.jpg';
 // import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,16 +7,30 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Footer from './Footer';
 import { useNavigation } from '@react-navigation/native';
 import { Card, Button } from 'react-native-paper';
 import alexaGrey from '../assets/alexaGrey.png'
+import StoreContext from '../ContextApi';
+
+
 
 export default function Homescreen() {
 
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
+  const [col, setcol] = useState("red");
+  const RoleDetails = useContext(StoreContext);
 
+
+  const Role = RoleDetails.Role;
+
+  useEffect(()=>{
+    Role === true ? setcol("green") : setcol("red")
+  },[Role])
+
+  // console.log(Role,"RoleRoleRoleRole");
   return (
 
     <View style={styles.main}>
@@ -162,8 +176,11 @@ export default function Homescreen() {
         <View style={styles.videoConatiner}>
           <View style={styles.quickimg}>
             <Text style={styles.imgtxt}>Front</Text>
-            <ImageBackground source={laungimage} resizeMode="cover" style={styles.imagevertical}>
-            </ImageBackground>
+            {/* <ImageBackground source={laungimage} resizeMode="cover" style={styles.imagevertical}>
+            </ImageBackground> */}
+            <TouchableOpacity>
+            <AntDesign name="staro" size={40} color={col} style={{ padding: 9 }} /> 
+            </TouchableOpacity>
           </View>
           <View style={styles.roWvideoConatiner}>
             <View style={styles.quickimg2}>
@@ -182,17 +199,17 @@ export default function Homescreen() {
       </View>
       {/*  */}
       <View style={styles.btncontainer}>
-        <TouchableOpacity style={styles.bg} onPress={() => navigation.navigate('Devicescreen')}>
+        <TouchableOpacity style={styles.bg} onPress={() => navigation.navigate('Recording')}>
           <View style={styles.btn}>
             <Text>
               {/* <Feather name="share-2" size={24} color="black" /> */}
               <MaterialIcons name="device-hub" size={30} color="skyblue" />
-            </Text><Text>View all cameras</Text></View>
+            </Text><Text>24 hour recording</Text></View>
         </TouchableOpacity>
         <View style={styles.bgdbtn}>
           <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('Statusscreen')}><Text> <Ionicons name="stats-chart" size={24} color="skyblue" style={{ padding: 9 }} /> Stats</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('Recording')}><Text>  <AntDesign name="videocamera" size={24} color="skyblue" /> Recordings </Text></TouchableOpacity>
-          <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('SettingScreen')}><Text> <AntDesign name="setting" size={24} color="skyblue" /> Settings </Text></TouchableOpacity>
+          <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('Devicescreen')}><Text>  <AntDesign name="videocamera" size={24} color="skyblue" /> Recordings </Text></TouchableOpacity>
+          <TouchableOpacity style={styles.btnd} onPress={() => navigation.navigate('Clips')}><Text> <MaterialCommunityIcons name="clipboard-play-multiple-outline" size={24} color="skyblue" /> Clips </Text></TouchableOpacity>
         </View>
 
       </View>
@@ -335,7 +352,7 @@ const styles = StyleSheet.create({
   },
   btn: {
 
-    width: "35%",
+    width: "42%",
     height: "100%",
     backgroundColor: "white",
     display: "flex",
@@ -369,8 +386,8 @@ const styles = StyleSheet.create({
   //   marginTop: 20,
   // },
   quickimg: {
-    // display: "flex",
-    // flexDirection: "column",
+    display: "flex",
+    flexDirection: "row",
     // flex: 1,
     // justifyContent:"space-between"
     // borderWidth: 1,
@@ -381,6 +398,9 @@ const styles = StyleSheet.create({
     elevation: 8,
     shadowColor: 'skyblue',
     width: "60%",
+    justifyContent:"space-between",
+    marginLeft: 20,
+    marginTop: 20,
   },
 
 

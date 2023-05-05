@@ -1,5 +1,5 @@
-import React from 'react';
-import { Image, StyleSheet, Text, View,TouchableOpacity  } from 'react-native'
+import React, { useState, useEffect, useContext } from 'react';
+import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import laungimage from '../assets/lounge.jpg';
 import Footer from './Footer';
@@ -7,15 +7,22 @@ import Footer from './Footer';
 // import { Feather } from '@expo/vector-icons';
 // import { MaterialIcons } from '@expo/vector-icons';
 // import { FontAwesome5 } from '@expo/vector-icons';
-// import { Ionicons } from '@expo/vector-icons';
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Checkbox } from 'react-native-paper';
+import StoreContext from '../ContextApi';
 // import { SimpleLineIcons } from '@expo/vector-icons';
 
 
 export default function Recording() {
 
     const navigation = useNavigation();
+    const [checked, setChecked] = React.useState(false);
+    const RoleDetails = useContext(StoreContext);
+    RoleDetails.setRole(checked)
+
+
 
     return (
         <View style={styles.main}>
@@ -31,10 +38,18 @@ export default function Recording() {
 
                 {/* body */}
                 <View style={styles.bodyconatiner}>
-                    <Text style={styles.headingcam}>Select Camera</Text>
+                    <View style={{display:"flex",flexDirection:"row"}}>
+                        <Checkbox
+                            status={checked ? 'checked' : 'unchecked'}
+                            onPress={() => {
+                                setChecked(!checked);
+                            }}
+                        />
+                        <Text style={styles.headingcam}> Select Camera</Text>
+                    </View>
 
                     {/* <Text > */}
-                    <TouchableOpacity  style={styles.card} onPress={() => navigation.navigate('CalenderScreen')}>
+                    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('CalenderScreen')}>
                         <Image
                             style={styles.cardimg}
                             source={laungimage}
@@ -107,7 +122,7 @@ export default function Recording() {
                             </View>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.card}  onPress={() => navigation.navigate('CalenderScreen')}>
+                    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('CalenderScreen')}>
                         <Image
                             style={styles.cardimg}
                             source={laungimage}
